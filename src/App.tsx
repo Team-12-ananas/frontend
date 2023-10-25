@@ -1,15 +1,16 @@
 import { Route, Routes } from "react-router";
 import classes from "./App.module.scss";
-import MainPage from "./pages/MainPage/MainPage";
+// import MainPage from "./pages/MainPage/MainPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import PromoPage from "./pages/PromoPage/PromoPage";
 
 function App() {
   return (
     <div className={classes.app}>
       <Routes>
-        <Route path="/" Component={MainPage} />
+        <Route path="/" Component={PromoPage} />
         <Route
           path="/profile"
           element={<ProtectedRoute Component={ProfilePage} />}

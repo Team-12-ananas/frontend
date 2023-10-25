@@ -1,3 +1,5 @@
+@import url(../vendor/fonts.css);
+
 :root {
   --black-900: #1a1b22;
   --black-500: #797981;
@@ -20,4 +22,10 @@
   --yellow: #fff9d3;
   --pink: #ffbffd;
   --brown: #a99175;
+}
+
+.main {
+  font-family: "YS Text", Times, serif;
+  font-family: 400;
+  margin: 0;
 }
