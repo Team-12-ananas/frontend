@@ -21,6 +21,9 @@ const Header: React.FC = () => {
     );
   });
 
+  const navItemText = ["Избранное", "Мои вакансии"];
+  const profileName = "Константин Константинов";
+
   return (
     <StyledEngineProvider injectFirst>
       <header className="header">
@@ -32,12 +35,12 @@ const Header: React.FC = () => {
             <nav>
               <ul className="header__nav">
                 <li className="header__nav-item header__nav-item_active">
-                  Мои вакансии
+                  {navItemText[0]}
                 </li>
-                <li className="header__nav-item">Избранное</li>
+                <li className="header__nav-item">{navItemText[1]}</li>
                 <li className="header__nav-item">
                   <Select
-                    defaultValue={"ООО «Каштанка»"}
+                    defaultValue={options[0]}
                     className="header__select"
                     variant="plain"
                     indicator={<img src={iconKeyboardArrowDown} />}
@@ -58,7 +61,7 @@ const Header: React.FC = () => {
               }
             />
             <div className="header__profile">
-              <p className="header__profile-name">Константин Константинов</p>
+              <p className="header__profile-name">{profileName}</p>
               <Avatar
                 color="neutral"
                 size="md"
