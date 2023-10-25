@@ -29,7 +29,7 @@ const PromoPage: React.FC = () => {
 
   const badgesElements = badges.map(({ src, label }) => {
     return (
-      <div className="promoPage__advantage">
+      <div className="promoPage__advantage" key={label}>
         <img src={src} className="promoPage__icon" />
         <p className="promoPage__icon-description">{label}</p>
       </div>
