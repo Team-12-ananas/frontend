@@ -38,8 +38,8 @@ const PromoPage: React.FC = () => {
 
   return (
     <StyledEngineProvider injectFirst>
+      <Header />
       <main className="promoPage">
-        <Header />
         <div className="promoPage__container promoPage__container_type_bgImg">
           <div>
             <h1 className="promoPage__title">{promoPageTitle}</h1>
@@ -53,8 +53,8 @@ const PromoPage: React.FC = () => {
         <div className="promoPage__container">
           <div className="promoPage__advantages">{badgesElements}</div>
         </div>
-        <Footer />
       </main>
+      <Footer />
     </StyledEngineProvider>
   );
 };
