@@ -1,0 +1,103 @@
+.header {
+  background-color: var(--white);
+  color: var(--black-900);
+
+  &__container {
+    max-width: 1440px;
+    display: flex;
+    height: 60px;
+    margin: 0 auto;
+  }
+
+  &__wrapper {
+    margin: 0 20px;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+  }
+
+  &__logo {
+    padding: 8px 20px;
+    max-width: 100%;
+    margin-right: 39px;
+  }
+
+  &__nav {
+    display: flex;
+    column-gap: 24px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+
+  &__nav-item {
+    padding: 0;
+    margin: 0;
+    color: var(--black-500);
+    font-family: "YS Text";
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+  }
+
+  &__nav-item_active {
+    color: var(--blue-main);
+    font-weight: 500;
+  }
+
+  &__notification:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
+
+  &__wrapper_type_right {
+    justify-content: end;
+    column-gap: 24px;
+  }
+
+  &__profile {
+    display: flex;
+    column-gap: 12px;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__profile-name {
+    font-family: "YS Text";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+  }
+
+  &__select {
+    padding: 0;
+    margin: 0;
+    color: var(--black-500);
+    font-family: "YS Text";
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+  }
+
+  &__option {
+    color: var(--black-500);
+    font-family: "YS Text";
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+  }
+
+  &__option:hover {
+    background-color: white !important;
+  }
+
+  &__option.Mui-selected {
+    background-color: var(--blue-bg) !important;
+  }
+
+  &__select:hover {
+    background-color: white;
+  }
+}

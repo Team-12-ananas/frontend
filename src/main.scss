@@ -1,0 +1,31 @@
+@import url(../vendor/fonts.css);
+
+:root {
+  --black-900: #1a1b22;
+  --black-500: #797981;
+  --black-300: #b5b5b7;
+  --black-100: #dde0e4;
+  --gray: #f9fafb;
+  --white: #ffffff;
+  --blue: #5a9bff;
+  --blue-main: #1d6bf3;
+  --blue-bg: #f1f6ff;
+  --blue-light: #acccff;
+  --red: #ff0200;
+  --green: #87cc9e;
+  --gree-ligth: #c2e5ce;
+  --purple: #7f67d2;
+  --purple-light: #ccc2ed;
+  --orange: #ffce92;
+  --orange-light: #ffe1bd;
+  --rose: #ffdde5;
+  --yellow: #fff9d3;
+  --pink: #ffbffd;
+  --brown: #a99175;
+}
+
+.main {
+  font-family: "YS Text", Times, serif;
+  font-family: 400;
+  margin: 0;
+}
