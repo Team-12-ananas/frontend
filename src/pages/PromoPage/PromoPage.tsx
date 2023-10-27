@@ -5,6 +5,7 @@ import iconGroup from "../../assets/icons/iconGroup.svg";
 import iconManVoice from "../../assets/icons/iconManVoice.svg";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import ResumeModal from "../ResumeModal/ResumeModal";
 
 const PromoPage: React.FC = () => {
   const promoPageTitle = "Яндекс Найм";
@@ -48,6 +49,7 @@ const PromoPage: React.FC = () => {
             <Button type="button" size="lg" className="promoPage__button">
               {promoPageBtnLabel}
             </Button>
+            <ResumeModal />
           </div>
         </div>
         <div className="promoPage__container">
