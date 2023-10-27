@@ -110,4 +110,13 @@
     align-items: flex-start;
     align-self: self-start;
   }
+
+  &__button {
+    background-color: var(--blue);
+    padding: 15px 0;
+  }
+
+  &__button:hover {
+    background-color: var(--blue-main);
+  }
 }

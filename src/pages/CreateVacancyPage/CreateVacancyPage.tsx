@@ -503,7 +503,11 @@ const CreateVacancyPage: React.FC = () => {
                 onChange={formValue.city.onChange}
                 className="createVacancyPage__input createVacancyPage__input-type-short"
               />
-              <Button size="lg" type="submit">
+              <Button
+                size="lg"
+                type="submit"
+                className="createVacancyPage__button"
+              >
                 {createVacancyPageButtonText}
               </Button>
             </div>
