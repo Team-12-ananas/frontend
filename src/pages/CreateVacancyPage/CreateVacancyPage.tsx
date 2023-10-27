@@ -36,7 +36,31 @@ const CreateVacancyPage: React.FC = () => {
     "Удалённая работа",
   ];
 
+  const specialtyOptions = [
+    "Специальность1",
+    "Специальность2",
+    "Специальность3",
+  ];
+
+  const specializationTypeOptions = [
+    "Специализация1",
+    "Специализация2",
+    "Специализация3",
+  ];
+
+  const educationOptions = ["Образование1", "Образование2", "Образование3"];
+  const projectActivitiesOptions = ["Проектная1", "Проектная2", "Проектная3"];
   const jobExpirience = ["Не имеет значения", "От 1 года", "От 3 до 6 лет"];
+  const createVacancyPageTitle = "Создание вакансии";
+  const createVacancyPageSubtitleFirst = "Основная информация";
+  const createVacancyPageRecomendation =
+    "Рекомендуем использовать в названии вакансии больше ключевых слов — так мы сможем подобрать более подходящих кандидатов";
+  const createVacancyPageHelperTextKeyskills =
+    "Добавьте навыки, которыми должен обладать кандидат";
+  const createVacancyPageSubtitleSecond = "Характеристики кандидата";
+  const createVacancyPageDescription =
+    "На основе них мы подберём список самых подходящих кандидатов";
+  const createVacancyPageButtonText = "Создать вакансию";
 
   function helperOnSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -46,6 +70,7 @@ const CreateVacancyPage: React.FC = () => {
       const element = formValue[key].value;
       value[key] = element;
     }
+    //TODO Заменить консоль лог на функцию с API
     console.log(value);
   }
 
@@ -255,10 +280,12 @@ const CreateVacancyPage: React.FC = () => {
       <main className="createVacancyPage">
         <div className="createVacancyPage__container">
           <form onSubmit={helperOnSubmit} className="createVacancyPage__form">
-            <h1 className="createVacancyPage__title">Создание вакансии</h1>
+            <h1 className="createVacancyPage__title">
+              {createVacancyPageTitle}
+            </h1>
             <div className="createVacancyPage__box">
               <h2 className="createVacancyPage__subtitle">
-                Основная информация
+                {createVacancyPageSubtitleFirst}
               </h2>
               <FormControl>
                 <FormLabel className="createVacancyPage__input-label">
@@ -270,8 +297,7 @@ const CreateVacancyPage: React.FC = () => {
                   onChange={formValue.name.onChange}
                 />
                 <FormHelperText className="createVacancyPage__input-helpertext">
-                  Рекомендуем использовать в названии вакансии больше ключевых
-                  слов — так мы сможем подобрать более подходящих кандидатов
+                  {createVacancyPageRecomendation}
                 </FormHelperText>
               </FormControl>
               <FormControl className="createVacancyPage__textarea">
@@ -339,10 +365,10 @@ const CreateVacancyPage: React.FC = () => {
             <div className="createVacancyPage__box">
               <div>
                 <h2 className="createVacancyPage__subtitle">
-                  Характеристики кандидата
+                  {createVacancyPageSubtitleSecond}
                 </h2>
                 <p className="createVacancyPage__description">
-                  На основе них мы подберём список самых подходящих кандидатов
+                  {createVacancyPageDescription}
                 </p>
               </div>
 
@@ -357,11 +383,7 @@ const CreateVacancyPage: React.FC = () => {
                       formValue.specialty.onChange(_, newValue)
                     }
                     placeholder="Подсказка"
-                    options={[
-                      "Специальность1",
-                      "Специальность2",
-                      "Специальность3",
-                    ]}
+                    options={specialtyOptions}
                     className="createVacancyPage__dropdown"
                   />
                 </FormControl>
@@ -375,11 +397,7 @@ const CreateVacancyPage: React.FC = () => {
                       formValue.specializationType.onChange(_, newValue)
                     }
                     placeholder="Подсказка"
-                    options={[
-                      "Специализация1",
-                      "Специализация2",
-                      "Специализация3",
-                    ]}
+                    options={specializationTypeOptions}
                     className="createVacancyPage__dropdown"
                   />
                 </FormControl>
@@ -395,7 +413,7 @@ const CreateVacancyPage: React.FC = () => {
                       formValue.education.onChange(_, newValue)
                     }
                     placeholder="Подсказка"
-                    options={["Образование1", "Образование2", "Образование3"]}
+                    options={educationOptions}
                     className="createVacancyPage__dropdown"
                   />
                 </FormControl>
@@ -405,7 +423,7 @@ const CreateVacancyPage: React.FC = () => {
                   </FormLabel>
                   <Autocomplete
                     placeholder="Подсказка"
-                    options={["Проектная1", "Проектная2", "Проектная3"]}
+                    options={projectActivitiesOptions}
                     className="createVacancyPage__dropdown"
                     value={formValue.projectActivities.value}
                     onChange={(_, newValue: string | null) =>
@@ -443,13 +461,13 @@ const CreateVacancyPage: React.FC = () => {
                     }
                   />
                   <FormHelperText className="createVacancyPage__input-helpertext createVacancyPage__input-helpertext-type-short">
-                    Добавьте навыки, которыми должен обладать кандидат
+                    {createVacancyPageHelperTextKeyskills}
                   </FormHelperText>
                 </FormControl>
                 <div className="createVacancyPage__chips">{chipsElement}</div>
               </div>
               <div className="createVacancyPage__wrapper">
-                <div>
+                <div className="createVacancyPage__wrapper-element">
                   <Typography
                     id="type-of-employment"
                     level="body-sm"
@@ -462,7 +480,7 @@ const CreateVacancyPage: React.FC = () => {
                     <List size="sm">{employmentTypeElem}</List>
                   </div>
                 </div>
-                <div>
+                <div className="createVacancyPage__wrapper-element">
                   <FormControl>
                     <Typography level="body-sm" fontWeight="lg" mb={1}>
                       {formValue.jobExpirience.description}
@@ -486,7 +504,7 @@ const CreateVacancyPage: React.FC = () => {
                 className="createVacancyPage__input createVacancyPage__input-type-short"
               />
               <Button size="lg" type="submit">
-                Создать вакансию
+                {createVacancyPageButtonText}
               </Button>
             </div>
           </form>
