@@ -1,0 +1,53 @@
+.vacancy-form {
+  color: var(--white);
+  margin-bottom: 142px;
+
+  &__title {
+    text-align: center;
+    color: var(--white);
+    font-family: "YS Display";
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 40px;
+    margin: 80px 0 32px 0;
+  }
+
+  &__subtitle {
+    margin: 0 0 8px 0;
+    color: var(--black-900);
+    font-feature-settings: "clig" off, "liga" off;
+    font-family: "YS Display";
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+  }
+
+  &__description {
+    color: var(--black-500);
+    font-family: YS Text;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+  }
+
+  &__wrapper {
+    display: flex;
+    column-gap: 32px;
+
+    &-element {
+      flex-grow: 1;
+    }
+  }
+
+  &__box {
+    max-width: 620px;
+    box-sizing: border-box;
+    padding: 32px 40px;
+    margin: 0 auto 20px auto;
+    background: var(--white);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+  }
+}
