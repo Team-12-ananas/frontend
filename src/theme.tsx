@@ -88,14 +88,14 @@ const theme = extendTheme({
           paddingBlock: "10px",
           paddingInline: "20px",
           borderRadius: 6,
-          backgroundColor: "#5A9BFF",
+          // backgroundColor: "#5A9BFF",
           fontSize: "14px",
-          "&:disabled": {
-            backgroundColor: "#B5B5B7",
-          },
-          "&:hover": {
-            backgroundColor: "#1D6BF3",
-          },
+          // "&:disabled": {
+          //   backgroundColor: "#B5B5B7",
+          // },
+          // "&:hover": {
+          //   backgroundColor: "#1D6BF3",
+          // },
         },
       },
     },

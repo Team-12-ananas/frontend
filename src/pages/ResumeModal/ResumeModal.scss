@@ -1,5 +1,75 @@
-section {
-  width: 900px;
-  height: 1658px;
-  flex-shrink: 0;
+.resume {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 900px;
+  // TODO(zang3tsu88): change width to responsive
+  // move padding from modal to here?
+  color: var(--black-900);
+
+  &__header {
+    display: flex;
+    gap: 32px;
+
+    &_left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &_right {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__badges {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  &__title {
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--black-100, #dde0e4);
+    margin-bottom: 32px; // TODO(zang3tsu88): Возможно стоит уменьшить его. т.к. выглядит кажется слишком большим. Хотя на макете 32пх
+  }
+
+  &__list {
+    margin: 0;
+    padding-left: 25px;
+  }
+
+  &__list-item {
+    color: var(--main-black-900, #1a1b22);
+    /* Текст/Body1_Regular */
+    font-family: YS Text;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 125% */
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &_accent {
+      gap: 8px;
+    }
+  }
+
+  &__text_accent {
+    color: var(--black-500, #797981);
+    // /* Подзаголовки/Subtitle_Regular */
+    // font-family: "YS Text";
+    // font-size: 18px;
+    // font-style: normal;
+    // font-weight: 400;
+    // line-height: 24px; /* 133.333% */
+  }
+}
+
+.btn__outlined {
+  padding: 4px 10px;
 }

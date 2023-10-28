@@ -49,16 +49,9 @@ const PromoPage: React.FC = () => {
             <Button type="button" size="lg" className="promoPage__button">
               {promoPageBtnLabel}
             </Button>
-
+            {/* // 8:8  error  'ResumeModal' is defined but never used  @typescript-eslint/no-unused-vars
+            По этому он снова тут) За то можно сразу покликать) */}
             <ResumeModal />
-            <Button
-              type="button"
-              size="lg"
-              className="promoPage__button"
-              // onClick={openResume}
-            >
-              Просмотреть Резюме
-            </Button>
           </div>
         </div>
         <div className="promoPage__container">

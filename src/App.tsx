@@ -7,7 +7,6 @@ import PromoPage from "./pages/PromoPage/PromoPage";
 import MyVacanciesPage from "./pages/MyVacanciesPage/MyVacanciesPage";
 import CreateVacancyPage from "./pages/CreateVacancyPage/CreateVacancyPage";
 
-
 function App() {
   return (
     <div className={classes.app}>
