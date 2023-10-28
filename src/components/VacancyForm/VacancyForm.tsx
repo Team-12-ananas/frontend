@@ -243,9 +243,8 @@ const VacancyForm = () => {
                 placeholder={"strawberries@yandex.ru"}
               />
             </div>
-          </div>
-          <div className="vacancy-form__box">
-            <Typography className="vacancy-form__subtitle">
+
+            <Typography className="vacancy-form__subtitle vacancy-form__subtitle-type_down">
               {dictionary.createVacancyPageSubtitleSecond}
             </Typography>
             <Typography className="vacancy-form__description">

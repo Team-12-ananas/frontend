@@ -1,5 +1,4 @@
 import { extendTheme } from "@mui/joy/";
-// import colors from "./variables";
 
 const theme = extendTheme({
   fontWeight: {
@@ -75,8 +74,8 @@ const theme = extendTheme({
     light: {
       palette: {
         text: {
-          primary: "#fff",
-          secondary: "#1A1B22",
+          primary: "#1A1B22",
+          secondary: "#797981",
         },
       },
     },
@@ -89,7 +88,6 @@ const theme = extendTheme({
           paddingInline: "20px",
           borderRadius: 6,
           backgroundColor: "#5A9BFF",
-          fontSize: "14px",
           "&:disabled": {
             backgroundColor: "#B5B5B7",
           },
@@ -103,13 +101,3 @@ const theme = extendTheme({
 });
 
 export default theme;
-
-/**
- *plain, soft,outlined
-solidColor: "var(--joy-palette-common-white, #FFF)"
-solidBg: "var(--joy-palette-primary-500, #0B6BCB)"
-solidHoverBg: "var(--joy-palette-primary-600, #185EA5)"
-solidActiveBg: "var(--joy-palette-primary-700, #12467B)"
-solidDisabledColor: "var(--joy-palette-neutral-400, #9FA6AD)"
-solidDisabledBg: "var(--joy-palette-neutral-100, #F0F4F8)"
- */
