@@ -48,6 +48,14 @@ const PromoPage: React.FC = () => {
             <Button type="button" size="lg" className="promoPage__button">
               {promoPageBtnLabel}
             </Button>
+            <Button
+              type="button"
+              size="lg"
+              className="promoPage__button"
+              // onClick={openResume}
+            >
+              Просмотреть Резюме
+            </Button>
           </div>
         </div>
         <div className="promoPage__container">

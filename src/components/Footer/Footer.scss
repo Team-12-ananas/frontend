@@ -1,5 +1,6 @@
 .footer {
   border-top: 1px solid var(--black-100);
+  background-color: var(--main-black-900, #1a1b22);
 
   &__container {
     max-width: 1440px;
@@ -21,7 +22,8 @@
   }
 
   &__button {
-    background-color: var(--white);
+    // background-color: var(--white);
+    background-color: var(--main-black-900, #1a1b22);
     color: var(--black-500);
     font-family: "YS Text";
     font-size: 14px;
@@ -31,7 +33,8 @@
 
   &__button:hover {
     opacity: 0.8;
-    background-color: var(--white);
+    // background-color: var(--white);
+    background-color: var(--main-black-900, #1a1b22);
   }
 
   &__button-icon {
