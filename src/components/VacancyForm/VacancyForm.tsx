@@ -2,7 +2,7 @@ import { SyntheticEvent, useState } from "react";
 import "./VacancyForm.scss";
 import StyledEngineProvider from "@mui/joy/styles/StyledEngineProvider";
 import { Box, Radio, Typography } from "@mui/joy";
-import MyButtonSubmit from "../../UI/MyButtonSubmit/MyButtonSubmit";
+import MyButtonSubmit from "../../UI/MyButton/MyButton";
 import MyDropDownMulty from "../../UI/MyDropDownMulty/MyDropDownMulty";
 import MyContactInput from "../../UI/MyContactInput/MyContactInput";
 import MyRadioButtonGroup from "../../UI/MyRadioButtonGroup/MyRadioButtonGroup";
