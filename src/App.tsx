@@ -6,6 +6,7 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import PromoPage from "./pages/PromoPage/PromoPage";
 import MyVacanciesPage from "./pages/MyVacanciesPage/MyVacanciesPage";
 import CreateVacancyPage from "./pages/CreateVacancyPage/CreateVacancyPage";
+import VacancyPage from "./pages/VacancyPage/VacancyPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" Component={PromoPage} />
         <Route path="/my-vacancies" Component={MyVacanciesPage} />
         <Route path="/create" Component={CreateVacancyPage} />
+        <Route path="/vacancy" Component={VacancyPage} />
         <Route
           path="/profile"
           element={<ProtectedRoute Component={ProfilePage} />}
