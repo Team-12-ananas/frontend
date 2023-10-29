@@ -87,6 +87,7 @@ const theme = extendTheme({
           paddingBlock: "10px",
           paddingInline: "20px",
           borderRadius: 6,
+          fontSize: "14px",
           backgroundColor: "#5A9BFF",
           "&:disabled": {
             backgroundColor: "#B5B5B7",
