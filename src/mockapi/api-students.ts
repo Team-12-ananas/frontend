@@ -23,6 +23,7 @@ interface IStudent {
   city: string;
   employmentType: string[];
   readyToRelocate: boolean;
+  achievement: string[];
   jobExpirience: string;
   phone: string;
   email: string;
@@ -43,6 +44,7 @@ const students: IStudent[] = [
     employmentType: ["Гибридный график"],
     readyToRelocate: true,
     jobExpirience: "1 год",
+    achievement: ["Победитель в хакатоне", "Участник конкурсов"],
     telegram: "sweet_bun",
     phone: "+7 954 543-95-54",
     email: "sweetbun@yandex.ru",
