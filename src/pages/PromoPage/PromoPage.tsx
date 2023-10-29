@@ -6,8 +6,10 @@ import iconManVoice from "../../assets/icons/iconManVoice.svg";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import ResumeModal from "../../components/ResumeModal/ResumeModal";
+import { useNavigate } from "react-router-dom";
 
 const PromoPage: React.FC = () => {
+  const navigate = useNavigate();
   const promoPageTitle = "Яндекс Найм";
   const promoPageSubtitle = "здесь находят";
   const promoPageDescription = "более 100500 студентов в IT";
@@ -37,6 +39,10 @@ const PromoPage: React.FC = () => {
     );
   });
 
+  function handleCreateClick() {
+    navigate("/create", { replace: true });
+  }
+
   return (
     <StyledEngineProvider injectFirst>
       <Header />
@@ -46,7 +52,12 @@ const PromoPage: React.FC = () => {
             <h1 className="promoPage__title">{promoPageTitle}</h1>
             <p className="promoPage__subtitle">{promoPageSubtitle}</p>
             <p className="promoPage__description">{promoPageDescription}</p>
-            <Button type="button" size="lg" className="promoPage__button">
+            <Button
+              type="button"
+              size="lg"
+              className="promoPage__button"
+              onClick={handleCreateClick}
+            >
               {promoPageBtnLabel}
             </Button>
             <ResumeModal />
