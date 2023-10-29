@@ -48,6 +48,7 @@ const PromoPage: React.FC = () => {
             <Button type="button" size="lg" className="promoPage__button">
               {promoPageBtnLabel}
             </Button>
+            <ResumeModal />
           </div>
         </div>
         <div className="promoPage__container">

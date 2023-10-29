@@ -30,6 +30,7 @@ const ModalWindow: React.FC<Props> = ({ children }) => {
           }}
         >
           <ModalClose sx={{ m: 1 }} />
+
           {children}
         </ModalDialog>
       </Modal>
