@@ -1,0 +1,151 @@
+.container {
+  margin: 0;
+  background: #1a1b22;
+}
+
+.aboutVacancy {
+  width: 100vw;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: #fff;
+}
+.aboutVacancy__container {
+  max-width: 1280px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+@media (max-width: 1280px) {
+  .aboutVacancy__container {
+    margin: 0 80px;
+  }
+}
+
+.vacancyDiscr {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.nameVacancy {
+  margin: 0;
+}
+
+.stecVacancy {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 400px;
+  margin: auto;
+}
+
+.stecVacancyButton {
+  height: fit-content;
+  margin-right: 8px;
+  margin-top: 8px;
+  color: #5a9bff;
+  background-color: #fff;
+  border: 1px solid #5a9bff;
+  font-family: YS Text;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+}
+
+.stecVacancyButton:last-child {
+  margin-right: 0;
+}
+
+.editVacancy {
+  width: 141px;
+  height: 104px;
+  border: 20px;
+  padding: 15px;
+}
+
+.atWork {
+  width: 121px;
+  padding-left: 0;
+  border: none;
+  font-family: YS Text;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+  color: #87cc9e;
+}
+
+.atWorkValue {
+  color: #87cc9e;
+  font-family: YS Text;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+}
+
+.atWorkClose {
+  color: rgba(255, 191, 253, 0.87);
+  font-family: YS Text;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+}
+
+.editButton {
+  padding-left: 0;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+  font-family: YS Text;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+  color: #1a1b22;
+}
+
+.editButton:hover {
+  opacity: 0.7;
+}
+
+.table {
+  margin: 0 auto;
+  margin-bottom: 102px;
+  max-width: 1280px;
+  display: flex;
+  justify-content: center;
+}
+
+.selectedVacancy {
+  margin-right: 40px;
+}
+
+.stillButton {
+  margin: 0 auto;
+  margin-top: 40px;
+  width: 132px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  background-color: #1a1b22;
+  border-radius: 6px;
+  border: 1px solid #fff;
+  color: #fff;
+  font-family: YS Text;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+}
+
+.tableTitle {
+  font-family: YS Display;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px; /* 133.333% */
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}

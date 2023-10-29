@@ -15,7 +15,7 @@ const MyVacanciesPage: React.FC = () => {
   return (
     <StyledEngineProvider injectFirst>
       <Header />
-      <section className="my-vacancies">
+      <main className="my-vacancies">
         <Box className="my-vacancies__container">
           <Stack direction={"row"} justifyContent="space-between">
             <Typography level="h1" fontWeight="md">
@@ -89,7 +89,7 @@ const MyVacanciesPage: React.FC = () => {
             </Box>
           </Grid>
         </Box>
-      </section>
+      </main>
       <Footer />
     </StyledEngineProvider>
   );
