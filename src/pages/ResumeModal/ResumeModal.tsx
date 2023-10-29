@@ -1,15 +1,14 @@
 // import React from "react";
 import "./ResumeModal.scss";
 import ModalWindow from "../../components/Modal/ModalWindow";
-import {
-  Button,
-  ButtonGroup,
-  StyledEngineProvider,
-  Typography,
-} from "@mui/joy";
+import { Button, StyledEngineProvider, Typography } from "@mui/joy";
 import dasha from "../../assets/dasha.png";
 import BadgeWinner from "../../components/BadgeWinner/BadgeWinner";
 import BadgeContestant from "../../components/BadgeContestant/BadgeContestant";
+import Telegram from "../../UI/Icons/Telegram/Telegram";
+import Behance from "../../UI/Icons/Behance/Behance";
+import Email from "../../UI/Icons/Email/Email";
+import Phone from "../../UI/Icons/Phone/Phone";
 
 const skills = [
   "Figma, Photoshop, Illustrator, Tilda",
@@ -68,14 +67,40 @@ const ResumeModal = () => {
                   Контакты
                 </Typography>
                 <div className="resume__contacts">
-                  <Button variant="outlined" className="btn__outlined">
-                    Outlined
+                  <Button
+                    startDecorator={<Telegram />}
+                    variant="outlined"
+                    className="btn__outlined"
+                  >
+                    sweet_bun
+                  </Button>
+                  <Button
+                    startDecorator={<Phone />}
+                    variant="outlined"
+                    className="btn__outlined"
+                  >
+                    +7 954 543-95-54
+                  </Button>
+                  <Button
+                    startDecorator={<Email />}
+                    variant="outlined"
+                    className="btn__outlined"
+                  >
+                    sweetbun@yandex.ru
                   </Button>
                 </div>
                 <Typography level="body-lg" mt="20px" mb="12px" fontWeight="md">
                   Портфолио и резюме
                 </Typography>
-                <div className="resume__attachments"></div>
+                <div className="resume__attachments">
+                  <Button
+                    startDecorator={<Behance />}
+                    variant="outlined"
+                    className="btn__outlined"
+                  >
+                    Behance
+                  </Button>
+                </div>
               </div>
             </div>
           </section>
@@ -173,19 +198,16 @@ const ResumeModal = () => {
           </section>
           <section className="resume__section">
             {/*
-            // TODO(zang3tsu88): ДОДЕЛАТЬ КНОПКИ. Возможно сменить на обычный див.
+            // TODO(zang3tsu88): ДОДЕЛАТЬ КНОПКИ.
             // Может стоит вывести наружу из <article> и дать mt: 80px
              */}
-            <ButtonGroup
-              variant="outlined"
-              spacing="1rem"
-              aria-label="button group"
-              sx={{ mt: "20px" }}
-            >
-              <Button>Скачать резюме</Button>
-              <Button>Перенести в базу</Button>
-              <Button sx={{ marginLeft: "auto" }}>Кандидат подходит</Button>
-            </ButtonGroup>
+            <div className="resume__btn-group" aria-label="button group">
+              <Button variant="outlined">Скачать резюме</Button>
+              <Button variant="outlined">Перенести в базу</Button>
+              <Button sx={{ marginLeft: "auto", backgroundColor: "#5A9BFF" }}>
+                Кандидат подходит
+              </Button>
+            </div>
           </section>
         </article>
       </ModalWindow>
