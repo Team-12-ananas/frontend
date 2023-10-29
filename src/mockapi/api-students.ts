@@ -14,6 +14,7 @@ interface IEducationDescription {
   name: string;
   data: string;
   organization: string;
+  type: string;
 }
 
 interface IStudent {
@@ -30,6 +31,7 @@ interface IStudent {
   telegram: string;
   portfolio: IPortfolio[];
   jobExpirienceDescription: IJobExpirienceDescription[];
+  skills: string[];
   keySkills: string[];
   education: IEducationDescription[];
   aboutMe: string;
@@ -62,7 +64,7 @@ const students: IStudent[] = [
         text: "Проекты\nМобильное приложение для онлайн школы Praktika School (ссылка на кейс)\n*Спроектировал дизайн приложения на базе Android\n*Создал подробный UI-kit и интерактивный прототип",
       },
     ],
-    keySkills: [
+    skills: [
       "Figma, Photoshop, Illustrator, Tilda",
       "CJM, User Stories, JTBD",
       "Прототипирование",
@@ -74,9 +76,17 @@ const students: IStudent[] = [
       "Теория цвета, типографики, композиции",
       "HTML/CSS",
     ],
+    keySkills: [
+      "Figma",
+      "Гайдлайны IOS",
+      "Гайдлайны Android",
+      "CJM",
+      "Прототипирование",
+    ],
     education: [
       {
         name: "Экономист-менеджер",
+        type: "Высшее образование",
         data: "2014 (5 лет)",
         organization: "МАТИ имени К.Э. Циолковского",
       },
