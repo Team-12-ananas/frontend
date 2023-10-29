@@ -1,18 +1,18 @@
 interface JobPostRequest {
-  name: { value: string };
-  description: { value: string };
-  min_salary: { value: string };
-  max_salary: { value: string };
-  phone: { value: string };
-  email: { value: string };
-  specialty: { value: string };
-  specializationType: { value: string };
-  education: { value: string };
-  projectActivities: { value: string };
-  keySkills: { value: string[] };
-  employmentType: { value: string[] };
-  jobExpirience: { value: string };
-  city: { value: string };
+  name: string;
+  description: string;
+  min_salary: string;
+  max_salary: string;
+  phone: string;
+  email: string;
+  specialty: string;
+  specializationType: string;
+  education: string;
+  projectActivities: string;
+  keySkills: string[];
+  employmentType: string[];
+  jobExpirience: string;
+  city: string;
   archive?: boolean;
   id?: number;
 }
