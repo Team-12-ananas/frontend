@@ -14,8 +14,10 @@ import MyChipsField from "../../UI/MyChipsField/MyChipsField";
 import MyCheckBoxMulty from "../../UI/MyCheckBoxMulty/MyCheckBoxMulty";
 import dictionary from "../../constants/CreateVacancyPage";
 import { addVacancy } from "../../mockapi/api-vacancy";
+import { useNavigate } from "react-router-dom";
 
 const VacancyForm = () => {
+  const navigate = useNavigate();
   type TEvent =
     | React.ChangeEvent<HTMLInputElement>
     | React.ChangeEvent<HTMLTextAreaElement>;
@@ -186,7 +188,19 @@ const VacancyForm = () => {
     }
     console.log(value); //TODO Заменить консоль лог на функцию с API
 
-    addVacancy(value);
+    console.log("addVacancy begin");
+    addVacancy(value)
+      .then((result) => {
+        console.log("addVacancy OK");
+        console.log(result);
+        navigate("/my-vacancies", { replace: true });
+      })
+      .catch((err) => {
+        console.log("addVacancy catch - " + err);
+      })
+      .finally(() => {
+        console.log("addVacancy end");
+      });
   }
 
   const jobExpirienceElem = dictionary.jobExpirience.map((item, i) => (
