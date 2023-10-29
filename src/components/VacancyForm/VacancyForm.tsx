@@ -13,6 +13,7 @@ import MyTextArea from "../../UI/MyTextArea/MyTextArea";
 import MyChipsField from "../../UI/MyChipsField/MyChipsField";
 import MyCheckBoxMulty from "../../UI/MyCheckBoxMulty/MyCheckBoxMulty";
 import dictionary from "../../constants/CreateVacancyPage";
+import { addVacancy } from "../../mockapi/api-vacancy";
 
 const VacancyForm = () => {
   type TEvent =
@@ -184,6 +185,8 @@ const VacancyForm = () => {
       value[key] = element;
     }
     console.log(value); //TODO Заменить консоль лог на функцию с API
+
+    addVacancy(value);
   }
 
   const jobExpirienceElem = dictionary.jobExpirience.map((item, i) => (

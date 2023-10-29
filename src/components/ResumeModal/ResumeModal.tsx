@@ -1,36 +1,35 @@
-// import React from "react";
 import "./ResumeModal.scss";
-import ModalWindow from "../../components/Modal/ModalWindow";
+import ModalWindow from "../Modal/ModalWindow";
 import { Button, StyledEngineProvider, Typography } from "@mui/joy";
 import dasha from "../../assets/dasha.png";
-import BadgeWinner from "../../components/BadgeWinner/BadgeWinner";
-import BadgeContestant from "../../components/BadgeContestant/BadgeContestant";
-import Telegram from "../../UI/Icons/Telegram/Telegram";
-import Behance from "../../UI/Icons/Behance/Behance";
-import Email from "../../UI/Icons/Email/Email";
-import Phone from "../../UI/Icons/Phone/Phone";
+import BadgeWinner from "../BadgeWinner/BadgeWinner";
+import BadgeContestant from "../BadgeContestant/BadgeContestant";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
+import BrushOutlinedIcon from "@mui/icons-material/BrushOutlined";
+import MyButton from "../../UI/MyButton/MyButton";
+import TelegramIcon from "@mui/icons-material/Telegram";
 
-const skills = [
-  "Figma, Photoshop, Illustrator, Tilda",
-  "CJM, User Stories, JTBD",
-  "Прототипирование",
-  "Создание UI-kit, дизайн-системы",
-  "Работа с референсами и мудбордом",
-  "UX исследования",
-  "A/B и коридорные тестирования",
-  "Гайдлайны Android / IOS",
-  "Теория цвета, типографики, композиции",
-  "HTML/CSS",
-];
+const ResumeModal: React.FC = () => {
+  const skills = [
+    "Figma, Photoshop, Illustrator, Tilda",
+    "CJM, User Stories, JTBD",
+    "Прототипирование",
+    "Создание UI-kit, дизайн-системы",
+    "Работа с референсами и мудбордом",
+    "UX исследования",
+    "A/B и коридорные тестирования",
+    "Гайдлайны Android / IOS",
+    "Теория цвета, типографики, композиции",
+    "HTML/CSS",
+  ];
 
-/**
- * !!!!!!!!!!!!!!!!
- * Пока кнопка открытия попапа находится в самом компоненте модалки.
- * что бы его открыть, запихни <ResumeModal/> в любое видимое место
- *
- */
+  const skillsElem = skills.map((item, i) => (
+    <li key={i} className="resume__list-item">
+      {item}
+    </li>
+  ));
 
-const ResumeModal = () => {
   return (
     <StyledEngineProvider injectFirst>
       <ModalWindow>
@@ -67,36 +66,36 @@ const ResumeModal = () => {
                   Контакты
                 </Typography>
                 <div className="resume__contacts">
-                  <Button
-                    startDecorator={<Telegram />}
+                  <MyButton
+                    startDecorator={<TelegramIcon />}
                     variant="outlined"
-                    className="btn__outlined"
+                    className="resume__btn resume__btn-type-contact"
                   >
                     sweet_bun
-                  </Button>
-                  <Button
-                    startDecorator={<Phone />}
+                  </MyButton>
+                  <MyButton
+                    startDecorator={<LocalPhoneOutlinedIcon />}
                     variant="outlined"
-                    className="btn__outlined"
+                    className="resume__btn resume__btn-type-contact"
                   >
                     +7 954 543-95-54
-                  </Button>
-                  <Button
-                    startDecorator={<Email />}
+                  </MyButton>
+                  <MyButton
+                    startDecorator={<EmailOutlinedIcon />}
                     variant="outlined"
-                    className="btn__outlined"
+                    className="resume__btn resume__btn-type-contact"
                   >
                     sweetbun@yandex.ru
-                  </Button>
+                  </MyButton>
                 </div>
                 <Typography level="body-lg" mt="20px" mb="12px" fontWeight="md">
                   Портфолио и резюме
                 </Typography>
                 <div className="resume__attachments">
                   <Button
-                    startDecorator={<Behance />}
+                    startDecorator={<BrushOutlinedIcon />}
                     variant="outlined"
-                    className="btn__outlined"
+                    className="resume__btn resume__btn-type-contact"
                   >
                     Behance
                   </Button>
@@ -156,11 +155,7 @@ const ResumeModal = () => {
             <div className="resume__title">
               <Typography level="h2">Навыки</Typography>
             </div>
-            <ul className="resume__list">
-              {skills.map((skill) => (
-                <li className="resume__list-item">{skill}</li>
-              ))}
-            </ul>
+            <ul className="resume__list">{skillsElem}</ul>
           </section>
           <section className="resume__section">
             <div className="resume__title">
@@ -197,16 +192,22 @@ const ResumeModal = () => {
             </Typography>
           </section>
           <section className="resume__section">
-            {/*
-            // TODO(zang3tsu88): ДОДЕЛАТЬ КНОПКИ.
-            // Может стоит вывести наружу из <article> и дать mt: 80px
-             */}
-            <div className="resume__btn-group" aria-label="button group">
-              <Button variant="outlined">Скачать резюме</Button>
-              <Button variant="outlined">Перенести в базу</Button>
-              <Button sx={{ marginLeft: "auto", backgroundColor: "#5A9BFF" }}>
-                Кандидат подходит
-              </Button>
+            <div className="resume__wrapper_btn">
+              <div className="resume__btn-group">
+                <MyButton
+                  variant="outlined"
+                  className="resume__btn resume__btn-type-action"
+                >
+                  Скачать резюме
+                </MyButton>
+                <MyButton
+                  variant="outlined"
+                  className="resume__btn resume__btn-type-action"
+                >
+                  Перенести в базу
+                </MyButton>
+              </div>
+              <MyButton>Кандидат подходит</MyButton>
             </div>
           </section>
         </article>

@@ -5,6 +5,7 @@ import iconGroup from "../../assets/icons/iconGroup.svg";
 import iconManVoice from "../../assets/icons/iconManVoice.svg";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import ResumeModal from "../../components/ResumeModal/ResumeModal";
 
 const PromoPage: React.FC = () => {
   const promoPageTitle = "Яндекс Найм";

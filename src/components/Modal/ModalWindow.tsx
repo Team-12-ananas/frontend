@@ -1,40 +1,33 @@
-import { Button, Modal, ModalClose, ModalDialog } from "@mui/joy";
+import { ModalOverflow, ModalClose, ModalDialog, Modal } from "@mui/joy";
 import React from "react";
 import "./ModalWindow.scss";
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
+import { setShow } from "../../redux/slices/modalSlice";
 
 type Props = {
   children?: React.ReactNode;
 };
 const ModalWindow: React.FC<Props> = ({ children }) => {
-  //TODO: Предумать как управлять стейтом и кнопка открытия попапа.
-  const [open, setOpen] = React.useState(false);
+  const dispatch = useAppDispatch();
+  const open = useAppSelector((state) => state.modal.isShow);
+  const onClose = (newValue: boolean) => dispatch(setShow(newValue));
 
   return (
-    <React.Fragment>
-      <Button onClick={() => setOpen(true)}>Open modal</Button>
-      <Modal
-        //TODO(zang3tsu88): заполнить aria-label или удалить
-        aria-labelledby="modal-title"
-        aria-describedby="modal-desc"
-        open={open}
-        onClose={() => setOpen(false)}
-        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
-      >
+    <Modal open={open} onClose={() => onClose(false)} className="modal-window">
+      <ModalOverflow className="modal-window__overflow">
         <ModalDialog
           sx={{
             maxWidth: 900,
             borderRadius: "lg", // 12px
             px: 4, //  1 = 8px x 4 = 32px,
             py: 5, // 40px
-            boxShadow: "lg", // TODO: По макету вроде нет, если что удалить
           }}
         >
-          <ModalClose sx={{ m: 1 }} />
-
           {children}
+          <ModalClose sx={{ m: 1 }} />
         </ModalDialog>
-      </Modal>
-    </React.Fragment>
+      </ModalOverflow>
+    </Modal>
   );
 };
 

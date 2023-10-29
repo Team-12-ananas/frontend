@@ -5,6 +5,31 @@
   max-width: 900px;
   color: var(--black-900);
 
+  &__btn {
+    padding: 4px 10px;
+    box-sizing: border-box;
+  }
+
+  &__btn-type-contact {
+    padding: 0px 10px;
+    background-color: var(--white);
+  }
+
+  &__btn-type-action {
+    padding: 0px 10px;
+    background-color: var(--white);
+  }
+
+  &__btn-type-action:hover {
+    background-color: var(--blue-main);
+    color: var(--white);
+  }
+
+  &__btn-type-contact:hover {
+    background-color: var(--blue-main);
+    color: var(--white);
+  }
+
   &__header {
     display: flex;
     gap: 32px;
@@ -31,8 +56,8 @@
   &__contacts {
     display: flex;
     gap: 12px;
-    flex-wrap: wrap;
   }
+
   &__attachments {
     display: flex;
     gap: 12px;
@@ -51,7 +76,7 @@
   }
 
   &__list-item {
-    color: var(--main-black-900, #1a1b22);
+    color: var(--black-900, #1a1b22);
     /* Текст/Body1_Regular */
     font-family: YS Text;
     font-size: 16px;
@@ -83,12 +108,11 @@
   &__btn-group {
     display: flex;
     gap: 16px;
-    margin-top: 20px;
   }
-}
 
-.btn {
-  &__outlined {
-    padding: 4px 10px;
+  &__wrapper_btn {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 90px;
   }
 }

@@ -8,6 +8,7 @@ interface IProps {
   size?: "sm" | "md" | "lg";
   disabled?: boolean;
   className?: string;
+  startDecorator?: React.ReactNode;
 }
 
 const MyButton: React.FC<PropsWithChildren<IProps>> = ({
@@ -17,14 +18,16 @@ const MyButton: React.FC<PropsWithChildren<IProps>> = ({
   size = "lg",
   disabled = false,
   className = "",
+  startDecorator = null,
 }) => {
   return (
     <Button
       size={size}
       type={type}
       variant={variant}
-      className={`my-button ${className}`}
+      className={className}
       disabled={disabled}
+      startDecorator={startDecorator}
     >
       {children}
     </Button>

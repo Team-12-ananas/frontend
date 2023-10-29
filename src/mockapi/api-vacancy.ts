@@ -27,13 +27,15 @@ const generateUniqueId = (): number => {
   return id;
 };
 
-const addVacancy = (
-  vacancy: Omit<JobPostRequest, "id">
-): Promise<JobPostRequest> => {
+const addVacancy = (vacancy: unknown): Promise<JobPostRequest> => {
   return new Promise((resolve) => {
     setTimeout(() => {
       const id = generateUniqueId();
-      const vacancyWithIdAndArchive = { ...vacancy, archive: false, id };
+      const vacancyWithIdAndArchive = {
+        ...(vacancy as JobPostRequest),
+        archive: false,
+        id,
+      };
       vacancies.push(vacancyWithIdAndArchive);
       resolve(vacancyWithIdAndArchive);
     }, 1000);
@@ -48,6 +50,16 @@ const getVacancies = (): Promise<JobPostRequest[]> => {
   });
 };
 
+const getVacancyById = (id: number): Promise<JobPostRequest> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const vacancy = vacancies.find((item) => item.id === id);
+      if (vacancy) resolve(vacancy);
+      else reject("Не найдено в базе");
+    }, 1000);
+  });
+};
+
 const archiveVacancy = (id: number): Promise<JobPostRequest[]> => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -57,4 +69,4 @@ const archiveVacancy = (id: number): Promise<JobPostRequest[]> => {
   });
 };
 
-export { getVacancies, addVacancy, archiveVacancy };
+export { getVacancies, addVacancy, archiveVacancy, getVacancyById };

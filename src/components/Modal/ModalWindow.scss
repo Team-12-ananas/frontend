@@ -1,0 +1,11 @@
+.modal-window {
+  .MuiModal-backdrop {
+    backdrop-filter: inherit;
+    background-color: #00000080;
+  }
+
+  height: auto;
+  box-sizing: border-box;
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
