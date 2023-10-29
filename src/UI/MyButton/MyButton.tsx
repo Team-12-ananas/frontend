@@ -9,6 +9,7 @@ interface IProps {
   disabled?: boolean;
   className?: string;
   startDecorator?: React.ReactNode;
+  onClick?: () => void;
 }
 
 const MyButton: React.FC<PropsWithChildren<IProps>> = ({
@@ -19,6 +20,7 @@ const MyButton: React.FC<PropsWithChildren<IProps>> = ({
   disabled = false,
   className = "",
   startDecorator = null,
+  onClick,
 }) => {
   return (
     <Button
@@ -28,6 +30,7 @@ const MyButton: React.FC<PropsWithChildren<IProps>> = ({
       className={className}
       disabled={disabled}
       startDecorator={startDecorator}
+      onClick={onClick}
     >
       {children}
     </Button>

@@ -1,219 +1,227 @@
 import "./ResumeModal.scss";
 import ModalWindow from "../Modal/ModalWindow";
 import { Button, StyledEngineProvider, Typography } from "@mui/joy";
-import dasha from "../../assets/dasha.png";
 import BadgeWinner from "../BadgeWinner/BadgeWinner";
 import BadgeContestant from "../BadgeContestant/BadgeContestant";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
-import BrushOutlinedIcon from "@mui/icons-material/BrushOutlined";
+/* import BrushOutlinedIcon from "@mui/icons-material/BrushOutlined"; */
 import MyButton from "../../UI/MyButton/MyButton";
 import TelegramIcon from "@mui/icons-material/Telegram";
+import { IStudent, getStudentById } from "../../mockapi/api-students";
+import { useEffect, useState } from "react";
 
 const ResumeModal: React.FC = () => {
-  const skills = [
-    "Figma, Photoshop, Illustrator, Tilda",
-    "CJM, User Stories, JTBD",
-    "Прототипирование",
-    "Создание UI-kit, дизайн-системы",
-    "Работа с референсами и мудбордом",
-    "UX исследования",
-    "A/B и коридорные тестирования",
-    "Гайдлайны Android / IOS",
-    "Теория цвета, типографики, композиции",
-    "HTML/CSS",
-  ];
+  const [student, setStudent] = useState<IStudent | null>(null);
+  useEffect(() => {
+    async function getData() {
+      const data = await getStudentById(4);
+      if (data) setStudent(data);
+    }
+    getData();
+  }, []);
 
-  const skillsElem = skills.map((item, i) => (
-    <li key={i} className="resume__list-item">
-      {item}
-    </li>
-  ));
-
-  return (
-    <StyledEngineProvider injectFirst>
-      <ModalWindow>
-        <article className="resume">
-          <section className="resume__section">
-            <div className="resume__header">
-              <div className="resume__header resume__header_left">
-                <img src={dasha} alt="фото кандидата" />
-                {/* тут альт динамически заменить на
-                //* data.resume.name */}
-                <div className="resume__badges">
-                  <BadgeWinner />
-                  <BadgeContestant />
+  if (student)
+    return (
+      <StyledEngineProvider injectFirst>
+        <ModalWindow>
+          <article className="resume">
+            <section className="resume__section">
+              <div className="resume__header">
+                <div className="resume__header resume__header_left">
+                  <img
+                    src={student.avatar}
+                    alt="фото кандидата"
+                    className="resume__avatar"
+                  />
+                  <div className="resume__badges">
+                    <BadgeWinner />
+                    <BadgeContestant />
+                  </div>
+                </div>
+                <div className="resume__header resume__header_right">
+                  <Typography level="h1" mb="8px">
+                    {student.name}
+                  </Typography>
+                  <Typography
+                    level="h2"
+                    mb="20px"
+                    className="resume__text_accent"
+                  >
+                    {student.specialty}
+                  </Typography>
+                  <Typography level="title-md" mb="12px">
+                    {student.city} •{" "}
+                    {student.employmentType.map((item, i) => {
+                      return <span key={i}>{item}</span>;
+                    })}{" "}
+                    •{" "}
+                    {student.readyToRelocate
+                      ? "Готов к переезду"
+                      : "Не готов к переезду"}
+                  </Typography>
+                  <Typography level="title-md" mb="32px" fontWeight="md">
+                    Опыт работы — {student.jobExpirience}
+                  </Typography>
+                  <Typography level="body-lg" mb="12px" fontWeight="md">
+                    Контакты
+                  </Typography>
+                  <div className="resume__contacts">
+                    <MyButton
+                      startDecorator={<TelegramIcon />}
+                      variant="outlined"
+                      className="resume__btn resume__btn-type-contact"
+                    >
+                      {student.telegram}
+                    </MyButton>
+                    <MyButton
+                      startDecorator={<LocalPhoneOutlinedIcon />}
+                      variant="outlined"
+                      className="resume__btn resume__btn-type-contact"
+                    >
+                      {student.phone}
+                    </MyButton>
+                    <MyButton
+                      startDecorator={<EmailOutlinedIcon />}
+                      variant="outlined"
+                      className="resume__btn resume__btn-type-contact"
+                    >
+                      {student.email}
+                    </MyButton>
+                  </div>
+                  <Typography
+                    level="body-lg"
+                    mt="20px"
+                    mb="12px"
+                    fontWeight="md"
+                  >
+                    Портфолио и резюме
+                  </Typography>
+                  <div className="resume__attachments">
+                    {student.portfolio.map((item, i) => {
+                      return (
+                        <Button
+                          key={i}
+                          /* startDecorator={<BrushOutlinedIcon />} */
+                          variant="outlined"
+                          className="resume__btn resume__btn-type-contact"
+                          type="button"
+                          onClick={() => window.location.replace(item.src)}
+                        >
+                          {item.name}
+                        </Button>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
-              <div className="resume__header resume__header_right">
-                <Typography level="h1" mb="8px">
-                  Дарья Иванова
-                </Typography>
-                <Typography
-                  level="h2"
-                  mb="20px"
-                  className="resume__text_accent"
-                >
-                  Дизайнер интерфейсов
-                </Typography>
-                <Typography level="title-md" mb="12px">
-                  Москва • Гибридный график • Готов к переезду
-                </Typography>
-                <Typography level="title-md" mb="32px" fontWeight="md">
-                  Опыт работы — 1 год
-                </Typography>
-                <Typography level="body-lg" mb="12px" fontWeight="md">
-                  Контакты
-                </Typography>
-                <div className="resume__contacts">
-                  <MyButton
-                    startDecorator={<TelegramIcon />}
-                    variant="outlined"
-                    className="resume__btn resume__btn-type-contact"
-                  >
-                    sweet_bun
-                  </MyButton>
-                  <MyButton
-                    startDecorator={<LocalPhoneOutlinedIcon />}
-                    variant="outlined"
-                    className="resume__btn resume__btn-type-contact"
-                  >
-                    +7 954 543-95-54
-                  </MyButton>
-                  <MyButton
-                    startDecorator={<EmailOutlinedIcon />}
-                    variant="outlined"
-                    className="resume__btn resume__btn-type-contact"
-                  >
-                    sweetbun@yandex.ru
-                  </MyButton>
-                </div>
-                <Typography level="body-lg" mt="20px" mb="12px" fontWeight="md">
-                  Портфолио и резюме
-                </Typography>
-                <div className="resume__attachments">
-                  <Button
-                    startDecorator={<BrushOutlinedIcon />}
-                    variant="outlined"
-                    className="resume__btn resume__btn-type-contact"
-                  >
-                    Behance
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section className="resume__section">
-            <div className="resume__title">
-              <Typography level="h2">Опыт работы — 1 год</Typography>
-            </div>
-            <div className="resume__wrapper">
-              <Typography level="h3" fontWeight="md">
-                Дизайнер интерфейсов (обучение)
-              </Typography>
-              <div className="resume__wrapper resume__wrapper_accent">
-                <Typography
-                  level="title-md"
-                  className="resume__text resume__text_accent"
-                >
-                  Октябрь 2022 — Июль 2023
-                </Typography>
-                <Typography
-                  level="title-md"
-                  className="resume__text resume__text_accent"
-                >
-                  Яндекс Практикум
+            </section>
+            <section className="resume__section">
+              <div className="resume__title">
+                <Typography level="h2">
+                  Опыт работы — {student.jobExpirience}
                 </Typography>
               </div>
-            </div>
-            {/* ================================================================ */}
-            {/* TODO(zang3tsu88):
-                По логике это блок "обазанности" на прошлой работе. Вероятно это
-                стоит заменить на какой-то один p.resume__responsibilities
-                потому что с бэка будет приходить один кусок данных, а не много разных,
-                которые будем индивидуально стилизовать. */}
-            <Typography level="title-md" fontWeight="md" mt="32px">
-              Проекты
-            </Typography>
-            <Typography level="body-lg" fontWeight="md" mt="20px" mb="12px">
-              Мобильное приложение для онлайн школы Praktika School (ссылка на
-              кейс)
-            </Typography>
-            <Typography level="body-lg">
+              {student.jobExpirienceDescription.map((item, i) => {
+                return (
+                  <div key={i}>
+                    <div className="resume__wrapper">
+                      <Typography level="h3" fontWeight="md">
+                        {item.name}
+                      </Typography>
+                      <div className="resume__wrapper resume__wrapper_accent">
+                        <Typography
+                          level="title-md"
+                          className="resume__text resume__text_accent"
+                        >
+                          {item.date}
+                        </Typography>
+                        <Typography
+                          level="title-md"
+                          className="resume__text resume__text_accent"
+                        >
+                          {item.organization}
+                        </Typography>
+                      </div>
+                    </div>
+                    <p className="resume__expirience_desc">{item.text}</p>
+                  </div>
+                );
+              })}
+            </section>
+            <section className="resume__section">
+              <div className="resume__title">
+                <Typography level="h2">Навыки</Typography>
+              </div>
               <ul className="resume__list">
-                <li className="resume__list-item">
-                  Спроектировал дизайн приложения на базе Android
-                </li>
-                <li className="resume__list-item">
-                  Создал подробный UI-kit и интерактивный прототип
-                </li>
+                {student.skills.map((item, i) => (
+                  <li key={i} className="resume__list-item">
+                    {item}
+                  </li>
+                ))}
               </ul>
-            </Typography>
-            {/* ================================================================ */}
-          </section>
-          <section className="resume__section">
-            <div className="resume__title">
-              <Typography level="h2">Навыки</Typography>
-            </div>
-            <ul className="resume__list">{skillsElem}</ul>
-          </section>
-          <section className="resume__section">
-            <div className="resume__title">
-              <Typography level="h2">Образование</Typography>
-            </div>
-            <div className="resume__wrapper">
-              <Typography level="h3" fontWeight="md">
-                Экономист-менеджер
-              </Typography>
-              <div className="resume__wrapper resume__wrapper_accent">
-                <Typography
-                  level="title-md"
-                  className="resume__text resume__text_accent"
-                >
-                  2014 (5 лет)
-                </Typography>
-                <Typography
-                  level="title-md"
-                  className="resume__text resume__text_accent"
-                >
-                  МАТИ имени К.Э. Циолковского
-                </Typography>
+            </section>
+            <section className="resume__section">
+              <div className="resume__title">
+                <Typography level="h2">Образование</Typography>
               </div>
-            </div>
-          </section>
-          <section className="resume__section">
-            <div className="resume__title">
-              <Typography level="h2">Обо мне</Typography>
-            </div>
-            <Typography level="body-lg">
-              Хочу быть частью продуктовой команды, работать над сложными и
-              интересными задачами, проводить исследования, проектировать
-              интерфейсы, решать проблемы пользователей на благо бизнеса.
-            </Typography>
-          </section>
-          <section className="resume__section">
-            <div className="resume__wrapper_btn">
-              <div className="resume__btn-group">
-                <MyButton
-                  variant="outlined"
-                  className="resume__btn resume__btn-type-action"
-                >
-                  Скачать резюме
-                </MyButton>
-                <MyButton
-                  variant="outlined"
-                  className="resume__btn resume__btn-type-action"
-                >
-                  Перенести в базу
-                </MyButton>
+
+              {student.education.map((item, i) => {
+                return (
+                  <div className="resume__wrapper" key={i}>
+                    <Typography level="h3" fontWeight="md">
+                      {item.name}
+                    </Typography>
+                    <div className="resume__wrapper resume__wrapper_accent">
+                      <Typography
+                        level="title-md"
+                        className="resume__text resume__text_accent"
+                      >
+                        {item.data}
+                      </Typography>
+                      <Typography
+                        level="title-md"
+                        className="resume__text resume__text_accent"
+                      >
+                        {item.organization}
+                      </Typography>
+                    </div>
+                  </div>
+                );
+              })}
+            </section>
+            <section className="resume__section">
+              <div className="resume__title">
+                <Typography level="h2">Обо мне</Typography>
               </div>
-              <MyButton>Кандидат подходит</MyButton>
-            </div>
-          </section>
-        </article>
-      </ModalWindow>
-    </StyledEngineProvider>
-  );
+              <Typography level="body-lg">{student.aboutMe}</Typography>
+            </section>
+            <section className="resume__section">
+              <div className="resume__wrapper_btn">
+                <div className="resume__btn-group">
+                  <MyButton
+                    variant="outlined"
+                    className="resume__btn resume__btn-type-action"
+                    type="button"
+                    onClick={() => alert("Вы скачали резюме")}
+                  >
+                    Скачать резюме
+                  </MyButton>
+                  <MyButton
+                    variant="outlined"
+                    className="resume__btn resume__btn-type-action"
+                    onClick={() => alert("Вы перенесли в базу")}
+                  >
+                    Перенести в базу
+                  </MyButton>
+                </div>
+                <MyButton>Кандидат подходит</MyButton>
+              </div>
+            </section>
+          </article>
+        </ModalWindow>
+      </StyledEngineProvider>
+    );
 };
 
 export default ResumeModal;
