@@ -1,6 +1,9 @@
 .container {
   margin: 0;
   background: #1a1b22;
+  flex-grow: 1;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .aboutVacancy {

@@ -10,16 +10,19 @@ import MyButton from "../../UI/MyButton/MyButton";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import { IStudent, getStudentById } from "../../mockapi/api-students";
 import { useEffect, useState } from "react";
+import { useAppSelector } from "../../hooks/reduxHooks";
 
 const ResumeModal: React.FC = () => {
   const [student, setStudent] = useState<IStudent | null>(null);
+  const { currentId } = useAppSelector((state) => state.modal);
+
   useEffect(() => {
     async function getData() {
-      const data = await getStudentById(4);
+      const data = await getStudentById(currentId);
       if (data) setStudent(data);
     }
     getData();
-  }, []);
+  }, [currentId]);
 
   if (student)
     return (

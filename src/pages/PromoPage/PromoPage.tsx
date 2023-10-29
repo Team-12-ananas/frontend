@@ -5,7 +5,6 @@ import iconGroup from "../../assets/icons/iconGroup.svg";
 import iconManVoice from "../../assets/icons/iconManVoice.svg";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import ResumeModal from "../../components/ResumeModal/ResumeModal";
 import { useNavigate } from "react-router-dom";
 
 const PromoPage: React.FC = () => {
@@ -60,7 +59,6 @@ const PromoPage: React.FC = () => {
             >
               {promoPageBtnLabel}
             </Button>
-            <ResumeModal />
           </div>
         </div>
         <div className="promoPage__container">

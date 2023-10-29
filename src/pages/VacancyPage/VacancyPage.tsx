@@ -23,10 +23,10 @@ const VacancyPage: React.FC = () => {
 
   return (
     <StyledEngineProvider injectFirst>
+      <Header />
       <main className="container">
-        <Header />
         <section className="aboutVacancy">
-          <div className="aboutVacancy__container">
+          <div className=" aboutVacancy__container">
             <div className="vacancyDiscr">
               <h2 className="nameVacancy">
                 Графический дизайнер/ Дизайнер UX/UI
@@ -74,8 +74,8 @@ const VacancyPage: React.FC = () => {
             <ResumeCard />
           </div>
         </section>
-        <Footer />
       </main>
+      <Footer />
     </StyledEngineProvider>
   );
 };

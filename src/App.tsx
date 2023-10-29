@@ -7,6 +7,7 @@ import PromoPage from "./pages/PromoPage/PromoPage";
 import MyVacanciesPage from "./pages/MyVacanciesPage/MyVacanciesPage";
 import CreateVacancyPage from "./pages/CreateVacancyPage/CreateVacancyPage";
 import VacancyPage from "./pages/VacancyPage/VacancyPage";
+import ResumeModal from "./components/ResumeModal/ResumeModal";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         />
         <Route path="*" Component={ErrorPage} />
       </Routes>
+      <ResumeModal />
     </div>
   );
 }
