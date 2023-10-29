@@ -14,6 +14,8 @@ export const STUDENT__INITIAL: IStudent[] = [
     telegram: "sweet_bun",
     phone: "+7 954 543-95-54",
     email: "sweetbun@yandex.ru",
+    projects: "Более 3 проектов",
+    educationType: "Высшее образование",
     portfolio: [
       {
         name: "Behance",
@@ -72,6 +74,8 @@ export const STUDENT__INITIAL: IStudent[] = [
     telegram: "web_dev_alex",
     phone: "+7 901 234-56-78",
     email: "alexey@example.com",
+    projects: "Более 3 проектов",
+    educationType: "Высшее образование",
     portfolio: [
       {
         name: "GitHub",
@@ -109,6 +113,8 @@ export const STUDENT__INITIAL: IStudent[] = [
   {
     id: 3,
     name: "Мария Иванова",
+    projects: "Более 3 проектов",
+    educationType: "Высшее образование",
     avatar:
       "https://papik.pro/uploads/posts/2023-03/1677724549_papik-pro-p-krasivie-risunki-na-avatarku-dlya-devochek-27.jpg",
     specialty: "QA Инженер",
@@ -163,6 +169,8 @@ export const STUDENT__INITIAL: IStudent[] = [
   {
     id: 4,
     name: "Андрей Сидоров",
+    projects: "Более 5 проектов",
+    educationType: "Высшее образование",
     avatar:
       "https://tengyart.ru/wp-content/uploads/2020/12/Мужчкой-портрет-и-аватарка-для-инстаграм-в-нейросети-Artbreeder.jpg",
     specialty: "Frontend Разработчик",

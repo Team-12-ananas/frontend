@@ -1,8 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const initialState = {
-  isShow: true,
-  currentId: 1,
+interface IInitialState {
+  isShow: boolean;
+  currentIdResume: number | null;
+  currentIdVacancy: number | null;
+}
+
+const initialState: IInitialState = {
+  isShow: false,
+  currentIdResume: null,
+  currentIdVacancy: null,
 };
 
 export const modalSlice = createSlice({
@@ -12,12 +19,16 @@ export const modalSlice = createSlice({
     setShow: (state, action: PayloadAction<boolean>) => {
       state.isShow = action.payload;
     },
-    setModalCurrentId: (state, action: PayloadAction<number>) => {
-      state.currentId = action.payload;
+    setModalCurrentIdResume: (state, action: PayloadAction<number | null>) => {
+      state.currentIdResume = action.payload;
+    },
+    setModalCurrentIdVacancy: (state, action: PayloadAction<number>) => {
+      state.currentIdVacancy = action.payload;
     },
   },
 });
 
-export const { setShow } = modalSlice.actions;
+export const { setShow, setModalCurrentIdResume, setModalCurrentIdVacancy } =
+  modalSlice.actions;
 
 export default modalSlice.reducer;

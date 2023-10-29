@@ -5,7 +5,6 @@ import BadgeWinner from "../BadgeWinner/BadgeWinner";
 import BadgeContestant from "../BadgeContestant/BadgeContestant";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
-/* import BrushOutlinedIcon from "@mui/icons-material/BrushOutlined"; */
 import MyButton from "../../UI/MyButton/MyButton";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import { IStudent, getStudentById } from "../../mockapi/api-students";
@@ -14,15 +13,19 @@ import { useAppSelector } from "../../hooks/reduxHooks";
 
 const ResumeModal: React.FC = () => {
   const [student, setStudent] = useState<IStudent | null>(null);
-  const { currentId } = useAppSelector((state) => state.modal);
+  const { currentIdResume } = useAppSelector((state) => state.modal);
 
   useEffect(() => {
     async function getData() {
-      const data = await getStudentById(currentId);
+      if (!currentIdResume) {
+        setStudent(null);
+        return;
+      }
+      const data = await getStudentById(currentIdResume);
       if (data) setStudent(data);
     }
     getData();
-  }, [currentId]);
+  }, [currentIdResume]);
 
   if (student)
     return (

@@ -1,13 +1,16 @@
+.vacancy-page {
+  background-color: var(--black-900);
+  flex-grow: 1;
+}
+
 .container {
   margin: 0;
-  background: #1a1b22;
   flex-grow: 1;
   max-width: 1440px;
   margin: 0 auto;
 }
 
 .aboutVacancy {
-  width: 100vw;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   background-color: #fff;

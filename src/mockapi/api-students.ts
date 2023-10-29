@@ -37,7 +37,9 @@ export interface IStudent {
   skills: string[];
   keySkills: string[];
   education: IEducationDescription[];
+  educationType: string;
   aboutMe: string;
+  projects: string;
 }
 
 const students: IStudent[] = [...STUDENT__INITIAL];

@@ -7,7 +7,10 @@
   gap: 20px;
   padding: 24px;
   margin-bottom: 28px;
+  min-height: 150px;
+  cursor: pointer;
 }
+
 @media (max-width: 1280px) {
   .resumeCard {
     grid-template-columns: 18% 42% 30%;
@@ -19,9 +22,6 @@
   width: 81px;
   height: 81px;
   border-radius: 50%;
-}
-
-.resumeCardInfo {
 }
 
 .resumeCardName {

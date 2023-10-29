@@ -2,7 +2,10 @@ import { ModalOverflow, ModalClose, ModalDialog, Modal } from "@mui/joy";
 import React from "react";
 import "./ModalWindow.scss";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
-import { setShow } from "../../redux/slices/modalSlice";
+import {
+  setModalCurrentIdResume,
+  setShow,
+} from "../../redux/slices/modalSlice";
 
 type Props = {
   children?: React.ReactNode;
@@ -10,10 +13,13 @@ type Props = {
 const ModalWindow: React.FC<Props> = ({ children }) => {
   const dispatch = useAppDispatch();
   const open = useAppSelector((state) => state.modal.isShow);
-  const onClose = (newValue: boolean) => dispatch(setShow(newValue));
+  const onClose = () => {
+    dispatch(setShow(false));
+    dispatch(setModalCurrentIdResume(null));
+  };
 
   return (
-    <Modal open={open} onClose={() => onClose(false)} className="modal-window">
+    <Modal open={open} onClose={onClose} className="modal-window">
       <ModalOverflow className="modal-window__overflow">
         <ModalDialog
           sx={{

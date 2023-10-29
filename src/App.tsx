@@ -16,7 +16,7 @@ function App() {
         <Route path="/" Component={PromoPage} />
         <Route path="/my-vacancies" Component={MyVacanciesPage} />
         <Route path="/create" Component={CreateVacancyPage} />
-        <Route path="/vacancy" Component={VacancyPage} />
+        <Route path="/vacancy/:id" Component={VacancyPage} />
         <Route
           path="/profile"
           element={<ProtectedRoute Component={ProfilePage} />}
