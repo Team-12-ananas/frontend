@@ -87,8 +87,7 @@ const VacancyPageV2: React.FC = () => {
               <div className="vacancy__info">
                 <div className="vacancy__details">
                   <Box className="card vacancy__card">
-                    {/* TODO(zang3tsu88): в myVacanciesPage поправить на h2... почему тут h3..  или так и надо... не помню. */}
-                    <h3 className="card__title">{vacancy.name}</h3>
+                    <h2 className="card__title">{vacancy.name}</h2>
                     <div className="card__cost">
                       <span className="card__price">
                         {vacancy.min_salary} ₽
