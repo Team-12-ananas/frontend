@@ -1,20 +1,14 @@
-import {
-  Box,
-  Button,
-  Grid,
-  Link,
-  Stack,
-  StyledEngineProvider,
-  Typography,
-} from "@mui/joy";
+import { Box, Grid, Stack, StyledEngineProvider, Typography } from "@mui/joy";
 import { useState, useEffect } from "react";
 import "./MyVacanciesPage.scss";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import { getVacancies } from "../../mockapi/api-vacancy";
+import { JobPostRequest, getVacancies } from "../../mockapi/api-vacancy";
+import VacancyCard from "../../components/VacancyCard/VacancyCard";
+import MyButton from "../../UI/MyButton/MyButton";
 
 const MyVacanciesPage: React.FC = () => {
-  const [vacancies, setVacancies] = useState([]);
+  const [vacancies, setVacancies] = useState<JobPostRequest[]>([]);
 
   useEffect(() => {
     getVacancies()
@@ -40,29 +34,18 @@ const MyVacanciesPage: React.FC = () => {
             <Typography level="h1" fontWeight="md">
               Мои вакансии
             </Typography>
-            <Button>Добавить вакансию</Button>
+            <MyButton type="button">Добавить вакансию</MyButton>
           </Stack>
           <Grid className="grid">
             {vacancies
               .filter((vacancy) => !vacancy.archive)
               .map((vacancy) => (
-                <Box className="card">
-                  <h3 className="card__title">{vacancy.name}</h3>
-                  <div className="card__cost">
-                    <span className="card__price">{vacancy.min_salary} ₽</span>
-                    <span className="card__budget">
-                      Бюджет {vacancy.max_salary} ₽
-                    </span>
-                  </div>
-                  <p className="card__city">{vacancy.city}</p>
-                  <div className="card__contacts">
-                    <p className="card__phone">{vacancy.phone}</p>
-                    <p className="card__email">{vacancy.email}</p>
-                  </div>
-                  <Link href="#" className="card__link">
-                    Подобрано {vacancy.favorities.length} кандидата
-                  </Link>
-                </Box>
+                <VacancyCard
+                  vacancy={vacancy}
+                  key={vacancy?.id}
+                  withLink={vacancy.favorities?.length}
+                  withPadding
+                />
               ))}
           </Grid>
           <Stack direction={"row"} justifyContent="space-between">
@@ -72,23 +55,14 @@ const MyVacanciesPage: React.FC = () => {
           </Stack>
           <Grid className="grid">
             {vacancies
-              .filter((vacancy) => !vacancy.archive)
+              .filter((vacancy) => vacancy.archive)
               .map((vacancy) => (
-                <Box className="card card_disabled">
-                  <h3 className="card__title">{vacancy.name}</h3>
-                  <div className="card__cost">
-                    <span className="card__price">{vacancy.min_salary} ₽</span>
-                    <span className="card__budget">
-                      Бюджет {vacancy.max_salary} ₽
-                    </span>
-                  </div>
-                  <p className="card__city">{vacancy.city}</p>
-                  <div className="card__contacts">
-                    <p className="card__phone">{vacancy.phone}</p>
-                    <p className="card__email">{vacancy.email}</p>
-                  </div>
-                  {/* <Link href="#" className="card__link"></Link> */}
-                </Box>
+                <VacancyCard
+                  vacancy={vacancy}
+                  key={vacancy?.id}
+                  withPadding
+                  disabled
+                />
               ))}
           </Grid>
         </Box>

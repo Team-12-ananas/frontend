@@ -5,21 +5,23 @@ import { Link } from "react-router-dom";
 
 interface IProps {
   vacancy: JobPostRequest;
-  withLink?: boolean;
+  withLink?: number;
   withPadding?: boolean;
+  disabled?: boolean;
 }
 
 const VacancyCard: React.FC<IProps> = ({
   vacancy,
-  withLink = false,
+  withLink,
   withPadding = false,
+  disabled = false,
 }) => {
+  const classNameBox = `card  ${
+    withPadding ? "card_type_with-padding" : "vacancy__card"
+  } ${disabled ? "card_disabled" : ""}`;
+
   return (
-    <Box
-      className={`card vacancy__card ${
-        withPadding ? "card_type_with-padding" : ""
-      }`}
-    >
+    <Box className={classNameBox}>
       <h2 className="card__title">{vacancy.name}</h2>
       <div className="card__cost">
         <span className="card__price">{vacancy.min_salary} ₽</span>
@@ -31,7 +33,7 @@ const VacancyCard: React.FC<IProps> = ({
         <p className="card__email">{vacancy.email}</p>
       </div>
       {withLink && (
-        <Link to={"/"} className="card__link">
+        <Link to={`/vacancy/${vacancy.id}`} className="card__link">
           Найдено 4 кандидата
         </Link>
       )}
