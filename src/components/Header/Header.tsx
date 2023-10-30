@@ -8,6 +8,7 @@ import iconKeyboardArrowDown from "../../assets/icons/iconCaretDown.svg";
 
 import headerLogo from "../../assets/HeaderLogo.svg";
 import { Select, StyledEngineProvider } from "@mui/joy";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header: React.FC = () => {
   const isHasNotification = true;
@@ -23,21 +24,32 @@ const Header: React.FC = () => {
 
   const navItemText = ["Избранное", "Мои вакансии"];
   const profileName = "Константин Константинов";
+  const navigate = useNavigate();
 
   return (
     <StyledEngineProvider injectFirst>
       <header className="header">
         <div className="header__container">
           <div className="header__wrapper">
-            <div>
+            <div
+              onClick={() => {
+                navigate("/");
+              }}
+            >
               <img src={headerLogo} className="header__logo" />
             </div>
             <nav>
               <ul className="header__nav">
                 <li className="header__nav-item header__nav-item_active">
-                  {navItemText[0]}
+                  <Link to={"/"} className="header__nav-link">
+                    {navItemText[0]}
+                  </Link>
                 </li>
-                <li className="header__nav-item">{navItemText[1]}</li>
+                <li className="header__nav-item">
+                  <Link to={"/my-vacancies"} className="header__nav-link">
+                    {navItemText[1]}
+                  </Link>
+                </li>
                 <li className="header__nav-item">
                   <Select
                     defaultValue={options[0]}

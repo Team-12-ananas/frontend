@@ -20,6 +20,7 @@
     padding: 8px 20px;
     max-width: 100%;
     margin-right: 39px;
+    cursor: pointer;
   }
 
   &__nav {
@@ -87,6 +88,20 @@
     font-size: 13px;
     font-weight: 400;
     line-height: 16px;
+  }
+
+  &__nav-link {
+    text-decoration: none;
+    color: var(--black-500, #797981);
+    font-family: "YS Text";
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+  }
+
+  &__nav-link:hover {
+    color: var(--black-900);
   }
 
   &__option:hover {
