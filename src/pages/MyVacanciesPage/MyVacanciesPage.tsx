@@ -14,18 +14,14 @@ const MyVacanciesPage: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getVacancies()
-      .then((result) => {
+    try {
+      (async function getVacanciesData() {
+        const result = await getVacancies();
         setVacancies(result);
-        console.log("getVacancies OK");
-        console.log(result);
-      })
-      .catch((err) => {
-        console.log("getVacancies catch - " + err);
-      })
-      .finally(() => {
-        console.log("getVacancies end");
-      });
+      })();
+    } catch (error) {
+      console.log("getVacancies catch");
+    }
   }, []);
 
   function handleCreateClick() {
@@ -52,7 +48,7 @@ const MyVacanciesPage: React.FC = () => {
                 <VacancyCard
                   vacancy={vacancy}
                   key={vacancy?.id}
-                  withLink={vacancy.favorities?.length}
+                  withLink={4} /* {vacancy.favorities?.length} */
                   withPadding
                 />
               ))}
