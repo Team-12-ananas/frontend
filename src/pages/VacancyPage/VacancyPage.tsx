@@ -1,4 +1,4 @@
-import { Chip, StyledEngineProvider } from "@mui/joy";
+import { Box, Chip, Link, StyledEngineProvider, Typography } from "@mui/joy";
 import "./VacancyPage.scss";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
@@ -19,7 +19,7 @@ import {
 } from "../../redux/slices/modalSlice";
 import { useAppDispatch } from "../../hooks/reduxHooks";
 
-const VacancyPage: React.FC = () => {
+const VacancyPageV2: React.FC = () => {
   const { id } = useParams();
   const [vacancy, setVacancy] = useState<JobPostRequest | null>(null);
   const [students, setStudents] = useState<IStudent[] | null>(null);
@@ -81,80 +81,111 @@ const VacancyPage: React.FC = () => {
     return (
       <StyledEngineProvider injectFirst>
         <Header />
-        <main className="vacancy-page">
-          <section className="aboutVacancy">
-            <div className=" aboutVacancy__container">
-              <div className="vacancyDiscr">
-                <h2 className="nameVacancy">{vacancy.name}</h2>
-                <div className="budgetVacancy">
-                  <h2 className="budgetVacancyOk">{vacancy.min_salary} ₽</h2>
-                  <p className="budgetVacancyMax">
-                    Бюджет {vacancy.max_salary} ₽
-                  </p>
+        <main className="vacancy">
+          <header className="vacancy__header">
+            <div className="vacancy__container">
+              <div className="vacancy__info">
+                <div className="vacancy__details">
+                  <Box className="card vacancy__card">
+                    <h2 className="card__title">{vacancy.name}</h2>
+                    <div className="card__cost">
+                      <span className="card__price">
+                        {vacancy.min_salary} ₽
+                      </span>
+                      <span className="card__budget">
+                        Бюджет {vacancy.max_salary} ₽
+                      </span>
+                    </div>
+                    <p className="card__city">{vacancy.city}</p>
+                    <div className="card__contacts">
+                      <p className="card__phone">{vacancy.phone}</p>
+                      <p className="card__email">{vacancy.email}</p>
+                    </div>
+                    {/* TODO(zang3tsu88): В myVacanciesPage к линку добавить класс card__link_disabled с стялями display: none, чтобы не отображать ссылку */}
+                    {/* <Link href="#" className="card__link"></Link> */}
+                  </Box>
                 </div>
-                <p className="townVacancy">{vacancy.city}</p>
-                <p className="phoneVacance">{vacancy.phone}</p>
-                <p className="emailVacancy">{vacancy.email}</p>
-              </div>
-
-              <div className="stecVacancy">
-                {vacancy.keySkills.map((item, i) => {
-                  return (
-                    <Chip className="stecVacancyButton" size="lg" key={i}>
-                      {item}
-                    </Chip>
-                  );
-                })}
-              </div>
-
-              <div className="editVacancy">
-                <button className="editButton">В работе</button>
-                <button className="editButton">Редактировать</button>
-                <button className="editButton">В архив</button>
+                <div className="vacancy__skills">
+                  {vacancy.keySkills.map((item, i) => {
+                    return (
+                      <Chip className="vacancy__skill" size="lg" key={i}>
+                        {item}
+                      </Chip>
+                    );
+                  })}
+                </div>
+                <div className="vacancy__actions">
+                  <p className="vacancy__state">В работе</p>
+                  <Link underline="none" className="vacancy__edit">
+                    Редактировать
+                  </Link>
+                  <Link underline="none" className="vacancy__archive">
+                    В архив
+                  </Link>
+                </div>
               </div>
             </div>
-          </section>
-          <section className="table container">
-            <div className="selectedVacancy">
-              <h2 className="tableTitle">
-                Подобранный список {findedResume.length}
-              </h2>
-
-              {findedResume.map((item, i) => {
-                return (
-                  <ResumeCard
-                    resume={item}
-                    key={i}
-                    inBase={vacancy.base?.includes(item.id)}
-                    onClick={handleClickCardButton}
-                    handlePopupOpen={handlePopupOpen}
-                  />
-                );
-              })}
-              <button className="stillButton">Показать еще</button>
-            </div>
-            <div className="chooseVacancy">
-              <h2 className="tableTitle">Подходит {favoritesResume.length}</h2>
-              {favoritesResume.map((item, i) => {
-                return (
-                  <ResumeCard
-                    resume={item}
-                    key={i}
-                    inBase={vacancy.base?.includes(item.id)}
-                    onClick={() =>
-                      alert("Вы пригласили человека на собеседование!")
-                    }
-                    isFavorite
-                    handlePopupOpen={handlePopupOpen}
-                  />
-                );
-              })}
-            </div>
-          </section>
+          </header>
+          <div className="vacancy__container">
+            <section className="vacancy__body">
+              <div className="two-columns">
+                <div className="column column_left">
+                  <div className="column__title">
+                    <Typography level="h2" fontWeight="md">
+                      Подобранный список {findedResume.length}
+                    </Typography>
+                  </div>
+                  <div className="two-columns__content two-columns__content_left">
+                    <div className="search">
+                      <Typography level="h2">Здесь будет поиск</Typography>
+                    </div>
+                    <Typography level="h3">
+                      А тут фильтры * И еще чутка * И еще фильтры
+                    </Typography>
+                    {findedResume.map((item, i) => {
+                      return (
+                        <ResumeCard
+                          resume={item}
+                          key={i}
+                          inBase={vacancy.base?.includes(item.id)}
+                          onClick={handleClickCardButton}
+                          handlePopupOpen={handlePopupOpen}
+                        />
+                      );
+                    })}
+                    <button className="btn__show-more">Показать еще</button>
+                  </div>
+                </div>
+                <div className="column column_right">
+                  <div className="column__title">
+                    <Typography level="h2" fontWeight="md">
+                      Подходит {favoritesResume.length}
+                    </Typography>
+                  </div>
+                  <div className="two-columns__content two-columns__content_right">
+                    {favoritesResume.map((item, i) => {
+                      return (
+                        <ResumeCard
+                          resume={item}
+                          key={i}
+                          inBase={vacancy.base?.includes(item.id)}
+                          onClick={() =>
+                            alert("Вы пригласили человека на собеседование!")
+                          }
+                          isFavorite
+                          handlePopupOpen={handlePopupOpen}
+                        />
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
         </main>
         <Footer />
       </StyledEngineProvider>
     );
 };
 
-export default VacancyPage;
+export default VacancyPageV2;

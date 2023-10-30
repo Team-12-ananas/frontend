@@ -1,7 +1,5 @@
 import "./ResumeCard.scss";
 import React from "react";
-// import starPink from "../../assets/starPink.png";
-// import starYel from "../../assets/starYel.png";
 import { IStudent } from "../../mockapi/api-students";
 import MyButton from "../../UI/MyButton/MyButton";
 import BadgeContestant from "../BadgeContestant/BadgeContestant";
@@ -63,22 +61,13 @@ const ResumeCard: React.FC<IProps> = ({
         {inBase && <span className="cardNote">Перенесен в базу</span>}
 
         <div className="cardStars">
-          {/* {resume.achievement.map((item, i) => {
-            return (
-              <figure className="cardFigure" key={i}>
-                <img
-                  src={i % 2 === 0 ? starPink : starYel}
-                  className="cardFigureImg"
-                  alt="Звезда"
-                />
-                <figcaption className="cardFigureFigcaption">{item}</figcaption>
-              </figure>
+          {resume.achievement.map((item, i) => {
+            return i % 2 === 0 ? (
+              <BadgeContestant key={item} />
+            ) : (
+              <BadgeWinner key={item} />
             );
-          })} */}
-
-          {/* TODO(zang3tsu88): В новом макете теперь только эти 2, да и в прошлых слишком много текста было, их либо дорабатывать надо, либо лучше избавится. */}
-          <BadgeContestant />
-          <BadgeWinner />
+          })}
         </div>
       </div>
     </div>

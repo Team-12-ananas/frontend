@@ -1,141 +1,129 @@
-.vacancy-page {
+.vacancy {
+  color: var(--white);
   background-color: var(--black-900);
-  flex-grow: 1;
-}
+  background-image: url(../../assets/OrnamentationPromo.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  flex: 1;
 
-.container {
-  margin: 0;
-  flex-grow: 1;
-  max-width: 1440px;
-  margin: 0 auto;
-}
+  &__header {
+    background-color: var(--white);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
 
-.aboutVacancy {
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  background-color: var(--white, #fff);
-}
-.aboutVacancy__container {
-  max-width: 1280px;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-}
+  &__container {
+    box-sizing: border-box;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
 
-@media (max-width: 1280px) {
-  .aboutVacancy__container {
-    margin: 0 80px;
+  &__info {
+    padding: 40px 80px;
+    display: grid;
+    grid-template-columns: 48% 3fr 1fr;
+    gap: 40px;
+    justify-items: start;
+    align-items: start;
+  }
+
+  &__card {
+    padding: 0;
+  }
+
+  &__skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__skill {
+    color: #5a9bff;
+    background-color: var(--white);
+    border: 1px solid var(--blue);
+    font-family: "YS Text";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+  }
+
+  &__actions {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  &__state {
+    color: var(--green, #87cc9e);
+    // text-align: center;
+    /* Дополнительные/Body2_Medium */
+    font-family: "YS Text";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+    margin: 0;
+  }
+
+  &__edit {
+    color: var(--black-900, #1a1b22);
+    // text-align: center;
+    /* Дополнительные/Body2_Medium */
+    font-family: "YS Text";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+  }
+
+  &__archive {
+    color: var(--black-500, #797981);
+    text-align: center;
+    /* Дополнительные/Body2_Medium */
+    font-family: "YS Text";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+  }
+
+  &__body {
+    padding: 50px 80px 100px;
   }
 }
 
-.vacancyDiscr {
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
-
-.nameVacancy {
-  margin: 0;
-}
-
-.stecVacancy {
+.two-columns {
   display: flex;
-  flex-wrap: wrap;
-  max-width: 400px;
-  margin: auto;
+  gap: 40px;
+  width: 100%;
+
+  &__content {
+    margin-top: 20px;
+
+    &_right {
+      margin-top: 40px;
+    }
+  }
 }
 
-.stecVacancyButton {
-  height: fit-content;
-  margin-right: 8px;
-  margin-top: 8px;
-  color: #5a9bff;
-  background-color: var(--white, #fff);
-  border: 1px solid #5a9bff;
-  font-family: "YS Text";
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px; /* 142.857% */
+.column {
+  &__title {
+    border-bottom: 1px solid var(--white, var(--white, #fff));
+    width: 100%;
+    padding-bottom: 10px;
+  }
 }
 
-.stecVacancyButton:last-child {
-  margin-right: 0;
-}
-
-.editVacancy {
-  width: 141px;
-  height: 104px;
-  border: 20px;
-  padding: 15px;
-}
-
-.atWork {
-  width: 121px;
-  padding-left: 0;
-  border: none;
-  font-family: "YS Text";
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px; /* 142.857% */
-  color: #87cc9e;
-}
-
-.atWorkValue {
-  color: #87cc9e;
-  font-family: "YS Text";
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px; /* 142.857% */
-}
-
-.atWorkClose {
-  color: rgba(255, 191, 253, 0.87);
-  font-family: "YS Text";
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px; /* 142.857% */
-}
-
-.editButton {
-  padding-left: 0;
-  border: none;
-  background-color: var(--white, #fff);
-  cursor: pointer;
-  font-family: "YS Text";
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px; /* 142.857% */
-  color: #1a1b22;
-}
-
-.editButton:hover {
-  opacity: 0.7;
-}
-
-.table {
-  margin: 0 auto;
-  margin-bottom: 102px;
-  max-width: 1280px;
-  display: flex;
-  justify-content: center;
-}
-
-.selectedVacancy {
-  margin-right: 40px;
-}
-
-.stillButton {
+.btn__show-more {
   margin: 0 auto;
   margin-top: 40px;
   width: 132px;
   padding: 10px;
   display: flex;
   justify-content: center;
-  background-color: #1a1b22;
+  background-color: var(--black-900, #1a1b22);
   border-radius: 6px;
   border: 1px solid var(--white, #fff);
   color: var(--white, #fff);
@@ -146,12 +134,20 @@
   line-height: 20px; /* 142.857% */
 }
 
-.tableTitle {
-  font-family: "YS Display";
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 32px; /* 133.333% */
-  color: var(--white, #fff);
-  border-bottom: 1px solid var(--white, #fff);
+.search {
+  display: flex;
+  width: 619px;
+  height: 250px;
+  padding: 32px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  border-radius: 12px;
+  background: var(--blue-bg, #f1f6ff);
+  color: var(--black-900, #1a1b22);
+  margin-bottom: 40px;
+
+  /* Level 3 */
+  box-shadow: 0px 4px 6px 0px rgba(176, 190, 197, 0.3),
+    0px 8px 24px 0px rgba(176, 190, 197, 0.3);
 }
