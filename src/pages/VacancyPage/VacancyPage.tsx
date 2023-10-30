@@ -4,7 +4,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 
 import ResumeCard from "../../components/ResumeCard/ResumeCard";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   JobPostRequest,
   addStudentToFavorite,
@@ -27,6 +27,7 @@ const VacancyPageV2: React.FC = () => {
   const [favoritesResume, setFavoritesResume] = useState<IStudent[]>([]);
   const [findedResume, setFindedResume] = useState<IStudent[]>([]);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   function handlePopupOpen(studentId: number) {
     if (vacancy?.id) {
@@ -100,10 +101,14 @@ const VacancyPageV2: React.FC = () => {
                 </div>
                 <div className="vacancy__actions">
                   <p className="vacancy__state">В работе</p>
-                  <Link underline="none" className="vacancy__edit">
+                  <Link
+                    className="vacancy__edit"
+                    underline="none"
+                    onClick={() => navigate(`/edit-vacancy/${vacancy?.id}`)}
+                  >
                     Редактировать
                   </Link>
-                  <Link underline="none" className="vacancy__archive">
+                  <Link className="vacancy__archive" underline="none">
                     В архив
                   </Link>
                 </div>

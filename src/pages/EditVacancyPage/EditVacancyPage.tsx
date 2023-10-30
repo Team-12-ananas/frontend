@@ -1,14 +1,19 @@
+import "./EditVacancyPage.scss";
 import StyledEngineProvider from "@mui/joy/styles/StyledEngineProvider";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
-import "./CreateVacancyPage.scss";
 import VacancyForm from "../../components/VacancyForm/VacancyForm";
-import { SyntheticEvent, useState } from "react";
-import { addVacancy } from "../../mockapi/api-vacancy";
-import { useNavigate } from "react-router-dom";
+import { SyntheticEvent, useEffect, useState } from "react";
+import {
+  JobPostRequest,
+  editVacancy,
+  getVacancyById,
+} from "../../mockapi/api-vacancy";
+import { useNavigate, useParams } from "react-router-dom";
 import { IFormValue, TEvent } from "../../types/types";
 
-const CreateVacancyPageRef = () => {
+const EditVacancyPage: React.FC = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
   const handleChangeInput = (e: TEvent, key: string) => {
     setFormValue((prev) => {
@@ -128,23 +133,48 @@ const CreateVacancyPageRef = () => {
     },
   });
 
+  useEffect(() => {
+    async function getInitialState() {
+      if (!id) return;
+      const vacancy = await getVacancyById(+id);
+      setFormValue(() => {
+        const res: Record<string, string | string[] | null | unknown> = {};
+        let keyVac: keyof JobPostRequest;
+        let keyVal: keyof IFormValue;
+        for (keyVac in vacancy) {
+          const value = vacancy[keyVac];
+          keyVal = keyVac as keyof IFormValue;
+          if (formValue[keyVal]) {
+            res[keyVal] = { ...formValue[keyVal], value } as unknown;
+          }
+        }
+        console.log(res);
+        return res as unknown as IFormValue;
+      });
+    }
+    getInitialState();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
+
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (!id) return;
     const value: Record<string, string | string[] | null> = {};
     let key: keyof IFormValue;
     for (key in formValue) {
       const element = formValue[key].value;
       value[key] = element;
     }
-    console.log("addVacancy begin");
-    addVacancy(value)
+    editVacancy(+id, value)
       .then((result) => {
         console.log("addVacancy OK");
         console.log(result);
-        navigate("/my-vacancies", { replace: true });
       })
-      .catch((err) => {
-        console.log("addVacancy catch - " + err);
+      .then(() => {
+        navigate(`/vacancy/${id}`, { replace: true });
+      })
+      .catch(() => {
+        console.log("addVacancy catch - ");
       })
       .finally(() => {
         console.log("addVacancy end");
@@ -154,9 +184,13 @@ const CreateVacancyPageRef = () => {
   return (
     <StyledEngineProvider injectFirst>
       <Header />
-      <main className="createVacancyPage">
-        <div className="createVacancyPage__container">
-          <VacancyForm formValue={formValue} handleSubmit={handleSubmit} />
+      <main className="editVacancyPage">
+        <div className="editVacancyPage__container">
+          <VacancyForm
+            formValue={formValue}
+            handleSubmit={handleSubmit}
+            title="Редактирование вакансии"
+          />
         </div>
       </main>
       <Footer />
@@ -164,4 +198,4 @@ const CreateVacancyPageRef = () => {
   );
 };
 
-export default CreateVacancyPageRef;
+export default EditVacancyPage;

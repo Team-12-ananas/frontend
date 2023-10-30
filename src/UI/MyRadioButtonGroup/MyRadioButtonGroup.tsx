@@ -19,7 +19,7 @@ const MyRadioButtonGroup: React.FC<PropsWithChildren<IProps>> = ({
 }) => {
   return (
     <FormControl>
-      <Typography level="body-sm" fontWeight="lg" mb={1}>
+      <Typography level="body-sm" fontWeight="md" mb={1}>
         {label}
       </Typography>
       <RadioGroup

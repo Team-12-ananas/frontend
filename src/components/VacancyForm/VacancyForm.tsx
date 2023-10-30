@@ -1,4 +1,3 @@
-import { SyntheticEvent, useState } from "react";
 import "./VacancyForm.scss";
 import StyledEngineProvider from "@mui/joy/styles/StyledEngineProvider";
 import { Box, Radio, Typography } from "@mui/joy";
@@ -13,196 +12,19 @@ import MyTextArea from "../../UI/MyTextArea/MyTextArea";
 import MyChipsField from "../../UI/MyChipsField/MyChipsField";
 import MyCheckBoxMulty from "../../UI/MyCheckBoxMulty/MyCheckBoxMulty";
 import dictionary from "../../constants/CreateVacancyPage";
-import { addVacancy } from "../../mockapi/api-vacancy";
-import { useNavigate } from "react-router-dom";
+import { IFormValue } from "../../types/types";
 
-const VacancyForm = () => {
-  const navigate = useNavigate();
-  type TEvent =
-    | React.ChangeEvent<HTMLInputElement>
-    | React.ChangeEvent<HTMLTextAreaElement>;
+interface IProps {
+  formValue: IFormValue;
+  handleSubmit: (e: React.FormEvent) => void;
+  title?: string;
+}
 
-  type TFieldInput = {
-    description: string;
-    value: string | string[];
-    onChange: (e: TEvent) => void;
-  };
-
-  type TFieldDrowDownSingle = {
-    description: string;
-    value: string | null;
-    onChange: (
-      _: SyntheticEvent<Element, Event>,
-      newValue: string | null
-    ) => void;
-  };
-
-  type TFieldDrowDownMulty = {
-    description: string;
-    value: string[];
-    onChange: (_: SyntheticEvent<Element, Event>, newValue: string[]) => void;
-  };
-
-  interface IFormValue {
-    name: TFieldInput;
-    description: TFieldInput;
-    min_salary: TFieldInput;
-    max_salary: TFieldInput;
-    phone: TFieldInput;
-    email: TFieldInput;
-    specialty: TFieldDrowDownSingle;
-    specializationType: TFieldDrowDownSingle;
-    education: TFieldDrowDownSingle;
-    projectActivities: TFieldDrowDownSingle;
-    keySkills: TFieldDrowDownMulty;
-    employmentType: TFieldDrowDownMulty;
-    jobExpirience: TFieldInput;
-    city: TFieldInput;
-  }
-
-  const handleChangeInput = (e: TEvent, key: string) => {
-    setFormValue((prev) => {
-      return {
-        ...prev,
-        [key]: {
-          ...prev[key as keyof IFormValue],
-          value: e.target.value,
-        },
-      };
-    });
-  };
-
-  const handleChangeDropDownSingle = (newValue: string | null, key: string) => {
-    setFormValue((prev) => {
-      return {
-        ...prev,
-        [key]: {
-          ...prev[key as keyof IFormValue],
-          value: newValue,
-        },
-      };
-    });
-  };
-
-  const handleChangeDropDownMulty = (
-    newValue: string[],
-    key: keyof IFormValue
-  ) => {
-    setFormValue((prev) => {
-      return {
-        ...prev,
-        [key]: {
-          ...prev[key as keyof IFormValue],
-          value: newValue,
-        },
-      };
-    });
-  };
-
-  const [formValue, setFormValue] = useState<IFormValue>({
-    name: {
-      description: "Название вакансии",
-      value: "",
-      onChange: (e: TEvent) => handleChangeInput(e, "name"),
-    },
-    description: {
-      description: "Описание вакансии",
-      value: "",
-      onChange: (e: TEvent) => handleChangeInput(e, "description"),
-    },
-    min_salary: {
-      description: "Зарплата от",
-      value: "",
-      onChange: (e: TEvent) => handleChangeInput(e, "min_salary"),
-    },
-    max_salary: {
-      description: "Максимальный бюджет",
-      value: "",
-      onChange: (e: TEvent) => handleChangeInput(e, "max_salary"),
-    },
-    phone: {
-      description: "Телефон",
-      value: "",
-      onChange: (e: TEvent) => handleChangeInput(e, "phone"),
-    },
-    email: {
-      description: "Email",
-      value: "",
-      onChange: (e: TEvent) => handleChangeInput(e, "email"),
-    },
-    specialty: {
-      description: "Специальность",
-      value: null,
-      onChange: (_: SyntheticEvent<Element, Event>, newValue: string | null) =>
-        handleChangeDropDownSingle(newValue, "specialty"),
-    },
-    specializationType: {
-      description: "Специализация",
-      value: null,
-      onChange: (_: SyntheticEvent<Element, Event>, newValue: string | null) =>
-        handleChangeDropDownSingle(newValue, "specializationType"),
-    },
-    education: {
-      description: "Образование",
-      value: null,
-      onChange: (_: SyntheticEvent<Element, Event>, newValue: string | null) =>
-        handleChangeDropDownSingle(newValue, "education"),
-    },
-    projectActivities: {
-      description: "Проектная деятельность",
-      value: null,
-      onChange: (_: SyntheticEvent<Element, Event>, newValue: string | null) =>
-        handleChangeDropDownSingle(newValue, "projectActivities"),
-    },
-    keySkills: {
-      description: "Ключевые навыки",
-      value: [],
-      onChange: (_: SyntheticEvent<Element, Event>, newValue: string[]) =>
-        handleChangeDropDownMulty(newValue, "keySkills"),
-    },
-    employmentType: {
-      description: "Тип занятости",
-      value: [],
-      onChange: (_: SyntheticEvent<Element, Event>, newValue: string[]) =>
-        handleChangeDropDownMulty(newValue, "employmentType"),
-    },
-    jobExpirience: {
-      description: "Опыт работы",
-      value: "",
-      onChange: (e: TEvent) => handleChangeInput(e, "jobExpirience"),
-    },
-    city: {
-      description: "Город",
-      value: "",
-      onChange: (e: TEvent) => handleChangeInput(e, "city"),
-    },
-  });
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    const value: Record<string, string | string[] | null> = {};
-    let key: keyof IFormValue;
-    for (key in formValue) {
-      const element = formValue[key].value;
-      value[key] = element;
-    }
-    console.log(value); //TODO Заменить консоль лог на функцию с API
-
-    console.log("addVacancy begin");
-    addVacancy(value)
-      .then((result) => {
-        console.log("addVacancy OK");
-        console.log(result);
-        navigate("/my-vacancies", { replace: true });
-      })
-      .catch((err) => {
-        console.log("addVacancy catch - " + err);
-      })
-      .finally(() => {
-        console.log("addVacancy end");
-      });
-  }
-
+const VacancyForm: React.FC<IProps> = ({
+  formValue,
+  handleSubmit,
+  title = dictionary.createVacancyPageTitle,
+}) => {
   const jobExpirienceElem = dictionary.jobExpirience.map((item, i) => (
     <Radio key={i} value={item} label={item} />
   ));
@@ -212,7 +34,7 @@ const VacancyForm = () => {
       <StyledEngineProvider injectFirst>
         <Box component="form" onSubmit={handleSubmit} className="vacancy-form">
           <Typography className="vacancy-form__title" gutterBottom>
-            {dictionary.createVacancyPageTitle}
+            {title}
           </Typography>
           <div className="vacancy-form__box">
             <Typography className="vacancy-form__subtitle" gutterBottom>
@@ -315,6 +137,7 @@ const VacancyForm = () => {
             <div className="vacancy-form__wrapper">
               <div className="vacancy-form__wrapper-element">
                 <MyCheckBoxMulty
+                  label={formValue.employmentType.description}
                   data={dictionary.employmentType}
                   value={formValue.employmentType.value}
                   onChange={formValue.employmentType.onChange}

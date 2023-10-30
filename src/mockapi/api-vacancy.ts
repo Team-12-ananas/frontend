@@ -1,3 +1,5 @@
+import { VACANCY__INITIAL } from "../constants/ConstansApiVacancy";
+
 export interface JobPostRequest {
   name: string;
   description: string;
@@ -19,51 +21,7 @@ export interface JobPostRequest {
   favorities?: number[];
 }
 
-const vacancies: JobPostRequest[] = [
-  {
-    name: "Разработчик JavaScript",
-    description:
-      "Ищем опытного разработчика на JavaScript для работы над крупным веб-проектом.",
-    min_salary: "100000",
-    max_salary: "150000",
-    phone: "+7 (123) 456-78-90",
-    email: "hr@company.com",
-    specialty: "IT",
-    specializationType: "Полная занятость",
-    education: "Высшее",
-    projectActivities:
-      "Разработка клиентской части веб-приложения, работа с фреймворками.",
-    keySkills: ["JavaScript", "React", "Redux"],
-    employmentType: ["Полная занятость", "Контракт"],
-    jobExpirience: "3-5 лет",
-    city: "Москва",
-    id: 1,
-    archive: false,
-    base: [1, 2],
-    favorities: [1, 2],
-  },
-  {
-    name: "Инженер-программист",
-    description:
-      "Требуется инженер-программист для работы над встраиваемым программным обеспечением.",
-    min_salary: "80000",
-    max_salary: "120000",
-    phone: "+7 (321) 654-98-76",
-    email: "jobs@tech.com",
-    specialty: "Разработка ПО",
-    specializationType: "Полная занятость",
-    education: "Высшее техническое",
-    projectActivities: "Разработка и тестирование встраиваемого ПО.",
-    keySkills: ["C/C++", "RTOS", "Embedded Systems"],
-    employmentType: ["Полная занятость"],
-    jobExpirience: "1-3 года",
-    city: "Санкт-Петербург",
-    archive: true,
-    id: 2,
-    base: [3, 4],
-    favorities: [3, 4],
-  },
-];
+const vacancies: JobPostRequest[] = [...VACANCY__INITIAL];
 
 const generateUniqueId = (): number => {
   let id = 1;
@@ -86,6 +44,25 @@ const addVacancy = (vacancy: unknown): Promise<JobPostRequest> => {
       };
       vacancies.push(vacancyWithIdAndArchive);
       resolve(vacancyWithIdAndArchive);
+    }, 200);
+  });
+};
+
+const editVacancy = (id: number, vacancy: unknown): Promise<JobPostRequest> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const currentVacancy = vacancies.find((item) => item.id === id);
+      if (!currentVacancy) reject("Не найдено в базе");
+      const index = vacancies.indexOf(currentVacancy!);
+      console.log(vacancies[index]);
+      vacancies[index] = {
+        ...(vacancy as JobPostRequest),
+        id: vacancies[index].id,
+        base: vacancies[index].base,
+        favorities: vacancies[index].favorities,
+        archive: vacancies[index].archive,
+      } as JobPostRequest;
+      resolve(vacancy as JobPostRequest);
     }, 200);
   });
 };
@@ -135,4 +112,5 @@ export {
   archiveVacancy,
   getVacancyById,
   addStudentToFavorite,
+  editVacancy,
 };

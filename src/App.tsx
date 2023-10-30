@@ -8,6 +8,7 @@ import MyVacanciesPage from "./pages/MyVacanciesPage/MyVacanciesPage";
 import CreateVacancyPage from "./pages/CreateVacancyPage/CreateVacancyPage";
 import VacancyPage from "./pages/VacancyPage/VacancyPage";
 import ResumeModal from "./components/ResumeModal/ResumeModal";
+import EditVacancyPage from "./pages/EditVacancyPage/EditVacancyPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/my-vacancies" Component={MyVacanciesPage} />
         <Route path="/create" Component={CreateVacancyPage} />
         <Route path="/vacancy/:id" Component={VacancyPage} />
+        <Route path="/edit-vacancy/:id" Component={EditVacancyPage} />
         <Route
           path="/profile"
           element={<ProtectedRoute Component={ProfilePage} />}

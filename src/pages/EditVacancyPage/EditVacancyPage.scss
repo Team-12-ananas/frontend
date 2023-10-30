@@ -1,0 +1,9 @@
+.editVacancyPage {
+  background-color: var(--black-900);
+  flex-grow: 1;
+
+  &__container {
+    margin: 0 auto;
+    max-width: 1440px;
+  }
+}

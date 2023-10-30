@@ -1,6 +1,10 @@
 export default {
-  educationOptions: ["Образование1", "Образование2", "Образование3"],
-  projectActivitiesOptions: ["Проектная1", "Проектная2", "Проектная3"],
+  educationOptions: ["Среднее общее", "Среднее профессиональное", "Высшее"],
+  projectActivitiesOptions: [
+    "Нет опыта",
+    "Более 3-х проектов",
+    "Более 5 проектов",
+  ],
   createVacancyPageTitle: "Создание вакансии",
   createVacancyPageSubtitleFirst: "Основная информация",
   createVacancyPageRecomendation:
@@ -19,11 +23,11 @@ export default {
     "Трудоустроился на ПТ",
   ],
   employmentType: ["Не имеет значения", "Офис", "Гибрид", "Удалённая работа"],
-  specialtyOptions: ["Специальность1", "Специальность2", "Специальность3"],
+  specialtyOptions: ["IT", "Дизайнер", "Project Manager"],
   specializationTypeOptions: [
-    "Специализация1",
-    "Специализация2",
-    "Специализация3",
+    "Графический дизайнер",
+    "Промышленный дизайнер",
+    "UI дизайнер",
   ],
   jobExpirience: ["Не имеет значения", "От 1 года", "От 3 до 6 лет"],
   placeholderDescriptionVacancy:
