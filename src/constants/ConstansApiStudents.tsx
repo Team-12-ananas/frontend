@@ -4,7 +4,8 @@ export const STUDENT__INITIAL: IStudent[] = [
   {
     id: 1,
     name: "Валентина Коготь",
-    avatar: "http://localhost:5173/src/assets/dasha.png",
+    avatar:
+      "https://gas-kvas.com/uploads/posts/2023-01/1673291820_gas-kvas-com-p-anime-risunki-devochka-s-khvostikom-20.jpg",
     specialty: "Дизайнер интерфейсов",
     city: "Москва",
     employmentType: ["Гибридный график"],
