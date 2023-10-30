@@ -1,7 +1,7 @@
 {
   "name": "pineapplebite",
   "homepage": "https://team-12-ananas.github.io/frontend/",
-  "private": true,
+  "private": false,
   "version": "0.1.0",
   "type": "module",
   "scripts": {
