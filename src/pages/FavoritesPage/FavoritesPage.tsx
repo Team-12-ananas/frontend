@@ -5,9 +5,15 @@ import Footer from "../../components/Footer/Footer";
 import { IStudent, getStudents } from "../../mockapi/api-students";
 import ResumeCard from "../../components/ResumeCard/ResumeCard";
 import { useEffect, useState } from "react";
+import {
+  setModalCurrentIdResume,
+  setShow,
+} from "../../redux/slices/modalSlice";
+import { useAppDispatch } from "../../hooks/reduxHooks";
 
 const FavoritePage: React.FC = () => {
   const [resumes, setResumes] = useState<IStudent[]>([]);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     getStudents()
@@ -22,10 +28,9 @@ const FavoritePage: React.FC = () => {
       });
   }, []);
 
-  function handlePopupOpen() {
-    return;
-  }
-  function handleClickCardButton() {
+  function handleClickCardButton(id: number) {
+    dispatch(setModalCurrentIdResume(id));
+    dispatch(setShow(true));
     return;
   }
 
@@ -46,8 +51,8 @@ const FavoritePage: React.FC = () => {
                 key={resume.id}
                 inBase={false}
                 isFavorite={false}
-                onClick={handleClickCardButton}
-                handlePopupOpen={handlePopupOpen}
+                handlePopupOpen={handleClickCardButton}
+                onClick={() => {}}
               />
             ))}
           </Grid>

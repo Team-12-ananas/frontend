@@ -8,7 +8,7 @@ import iconKeyboardArrowDown from "../../assets/icons/iconCaretDown.svg";
 
 import headerLogo from "../../assets/HeaderLogo.svg";
 import { Select, StyledEngineProvider } from "@mui/joy";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Header: React.FC = () => {
   const isHasNotification = true;
@@ -25,6 +25,7 @@ const Header: React.FC = () => {
   const navItemText = ["Избранное", "Мои вакансии"];
   const profileName = "Константин Константинов";
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   return (
     <StyledEngineProvider injectFirst>
@@ -40,16 +41,31 @@ const Header: React.FC = () => {
             </div>
             <nav>
               <ul className="header__nav">
-                <li className="header__nav-item header__nav-item_active">
-                  <Link to={"/favorites"} className="header__nav-link">
+                <li className="header__nav-item ">
+                  <Link
+                    to={"/favorites"}
+                    className={`header__nav-link ${
+                      pathname === "/favorites"
+                        ? "header__nav-item_active"
+                        : "header__nav-item_default"
+                    } `}
+                  >
                     {navItemText[0]}
                   </Link>
                 </li>
                 <li className="header__nav-item">
-                  <Link to={"/my-vacancies"} className="header__nav-link">
+                  <Link
+                    to={"/my-vacancies"}
+                    className={`header__nav-link ${
+                      pathname === "/my-vacancies"
+                        ? "header__nav-item_active"
+                        : "header__nav-item_default"
+                    } `}
+                  >
                     {navItemText[1]}
                   </Link>
                 </li>
+
                 <li className="header__nav-item">
                   <Select
                     defaultValue={options[0]}

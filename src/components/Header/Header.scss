@@ -47,6 +47,11 @@
     font-weight: 500;
   }
 
+  &__nav-item_default {
+    color: var(--black-500, #797981);
+    font-weight: 400;
+  }
+
   &__notification:hover {
     cursor: pointer;
     opacity: 0.7;
@@ -92,11 +97,11 @@
 
   &__nav-link {
     text-decoration: none;
-    color: var(--black-500, #797981);
+
     font-family: "YS Text";
     font-size: 13px;
     font-style: normal;
-    font-weight: 400;
+
     line-height: 16px;
   }
 
