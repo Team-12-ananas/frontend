@@ -1,5 +1,26 @@
 export const VACANCY__INITIAL = [
   {
+    name: "Графический дизайнер",
+    description:
+      "В поиске опытного графического дизайнера для работы над широким спектром проектов, включая рекламные материалы, брендинг и веб-дизайн.",
+    min_salary: "90000",
+    max_salary: "130000",
+    phone: "+7 (123) 456-78-91",
+    email: "design@company.com",
+    specialty: "Дизайнер",
+    specializationType: "Графический дизайнер",
+    education: "Высшее",
+    projectActivities: "Нет опыта",
+    keySkills: ["Adobe Photoshop", "Adobe Illustrator", "CorelDRAW", "Figma"],
+    employmentType: ["Офис", "Гибрид", "Удаленная работа"],
+    jobExpirience: "От 1 года",
+    city: "Санкт-Петербург",
+    id: 1,
+    archive: false,
+    base: [1, 2],
+    favorities: [1, 2],
+  },
+  {
     name: "Разработчик JavaScript",
     description:
       "Ищем опытного разработчика на JavaScript для работы над крупным веб-проектом.",
@@ -15,11 +36,12 @@ export const VACANCY__INITIAL = [
     employmentType: ["Офис", "Гибрид"],
     jobExpirience: "От 1 года",
     city: "Москва",
-    id: 1,
-    archive: false,
+    id: 2,
+    archive: true,
     base: [1, 2],
     favorities: [1, 2],
   },
+
   {
     name: "Инженер-программист",
     description:
@@ -37,7 +59,7 @@ export const VACANCY__INITIAL = [
     jobExpirience: "От 1 года",
     city: "Санкт-Петербург",
     archive: true,
-    id: 2,
+    id: 3,
     base: [3, 4],
     favorities: [3, 4],
   },

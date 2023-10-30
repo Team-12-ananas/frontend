@@ -18,12 +18,14 @@ interface IProps {
   formValue: IFormValue;
   handleSubmit: (e: React.FormEvent) => void;
   title?: string;
+  btnLabel?: string;
 }
 
 const VacancyForm: React.FC<IProps> = ({
   formValue,
   handleSubmit,
   title = dictionary.createVacancyPageTitle,
+  btnLabel = dictionary.createVacancyPageButtonText,
 }) => {
   const jobExpirienceElem = dictionary.jobExpirience.map((item, i) => (
     <Radio key={i} value={item} label={item} />
@@ -159,9 +161,7 @@ const VacancyForm: React.FC<IProps> = ({
               onChange={formValue.city.onChange}
               short
             />
-            <MyButtonSubmit>
-              {dictionary.createVacancyPageButtonText}
-            </MyButtonSubmit>
+            <MyButtonSubmit>{btnLabel}</MyButtonSubmit>
           </div>
         </Box>
       </StyledEngineProvider>

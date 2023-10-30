@@ -13,6 +13,7 @@ interface IProps {
   type?: string;
   placeholder?: string;
   options: string[];
+  full?: boolean;
 }
 
 const MyDropdown: React.FC<IProps> = ({
@@ -21,9 +22,14 @@ const MyDropdown: React.FC<IProps> = ({
   onChange,
   options,
   placeholder = "Подсказка",
+  full = false,
 }) => {
   return (
-    <FormControl className="my-dropdown__dropdown">
+    <FormControl
+      className={`${
+        full ? "my-dropdown__dropdown_type_full" : "my-dropdown__dropdown"
+      }`}
+    >
       <FormLabel className="my-dropdown__input-label">{label}</FormLabel>
       <Autocomplete
         value={value}

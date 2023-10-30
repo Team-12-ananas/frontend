@@ -4,6 +4,7 @@ import { IStudent } from "../../mockapi/api-students";
 import MyButton from "../../UI/MyButton/MyButton";
 import BadgeContestant from "../BadgeContestant/BadgeContestant";
 import BadgeWinner from "../BadgeWinner/BadgeWinner";
+import { useLocation } from "react-router-dom";
 
 type TFuncForFavorite = (studentId: number) => Promise<void>;
 
@@ -22,6 +23,19 @@ const ResumeCard: React.FC<IProps> = ({
   onClick,
   handlePopupOpen,
 }) => {
+  const location = useLocation();
+  const inviteBtnElem = location.pathname !== "/favorites" && (
+    <MyButton
+      className="cardButtonToList"
+      onClick={async (e: React.MouseEvent) => {
+        e.stopPropagation();
+        await onClick(resume.id);
+      }}
+    >
+      Подходит
+    </MyButton>
+  );
+
   return (
     <div className="resumeCard" onClick={() => handlePopupOpen(resume.id)}>
       <img src={resume.avatar} className="resumeCard__photo" alt="фото" />
@@ -34,7 +48,13 @@ const ResumeCard: React.FC<IProps> = ({
         <p className="resumeCardDiscr">{resume.city}</p>
       </div>
       <div className="cardTable">
-        <div className="cardButtons">
+        <div
+          className={`${
+            location.pathname !== "/favorites"
+              ? "cardButtons"
+              : "cardButtons__type_solo"
+          }`}
+        >
           {isFavorite ? (
             <MyButton
               className="cardButtonToList"
@@ -46,15 +66,7 @@ const ResumeCard: React.FC<IProps> = ({
               Пригласить
             </MyButton>
           ) : (
-            <MyButton
-              className="cardButtonToList"
-              onClick={async (e: React.MouseEvent) => {
-                e.stopPropagation();
-                await onClick(resume.id);
-              }}
-            >
-              Подходит
-            </MyButton>
+            inviteBtnElem
           )}
           <button className=" cardButtonLikeClicked"></button>
         </div>

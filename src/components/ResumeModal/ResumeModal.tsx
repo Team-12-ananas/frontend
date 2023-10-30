@@ -10,10 +10,12 @@ import TelegramIcon from "@mui/icons-material/Telegram";
 import { IStudent, getStudentById } from "../../mockapi/api-students";
 import { useEffect, useState } from "react";
 import { useAppSelector } from "../../hooks/reduxHooks";
+import { useLocation } from "react-router-dom";
 
 const ResumeModal: React.FC = () => {
   const [student, setStudent] = useState<IStudent | null>(null);
   const { currentIdResume } = useAppSelector((state) => state.modal);
+  const location = useLocation();
 
   useEffect(() => {
     async function getData() {
@@ -101,7 +103,7 @@ const ResumeModal: React.FC = () => {
                     mb="12px"
                     fontWeight="md"
                   >
-                    Портфолио и резюме
+                    Портфолио
                   </Typography>
                   <div className="resume__attachments">
                     {student.portfolio.map((item, i) => {
@@ -221,7 +223,11 @@ const ResumeModal: React.FC = () => {
                     Перенести в базу
                   </MyButton>
                 </div>
-                <MyButton>Кандидат подходит</MyButton>
+                {location.pathname !== "/favorites" && (
+                  <MyButton onClick={() => alert("Вы пригласили человека")}>
+                    Пригласить
+                  </MyButton>
+                )}
               </div>
             </section>
           </article>

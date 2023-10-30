@@ -15,18 +15,12 @@ export default {
   createVacancyPageDescription:
     "На основе них мы подберём список самых подходящих кандидатов",
   createVacancyPageButtonText: "Создать вакансию",
-  chipsData: [
-    "Специальность",
-    "Специализация",
-    "Опыт работы",
-    "Проектная деятельность",
-    "Трудоустроился на ПТ",
-  ],
+  chipsData: ["Figma", "Adobe", "Ux исследования", "Вайфреймы", "Прототипы"],
   employmentType: ["Не имеет значения", "Офис", "Гибрид", "Удалённая работа"],
   specialtyOptions: ["IT", "Дизайнер", "Project Manager"],
   specializationTypeOptions: [
+    "Web-дизайнер",
     "Графический дизайнер",
-    "Промышленный дизайнер",
     "UI дизайнер",
   ],
   jobExpirience: ["Не имеет значения", "От 1 года", "От 3 до 6 лет"],

@@ -148,7 +148,6 @@ const EditVacancyPage: React.FC = () => {
             res[keyVal] = { ...formValue[keyVal], value } as unknown;
           }
         }
-        console.log(res);
         return res as unknown as IFormValue;
       });
     }
@@ -190,6 +189,7 @@ const EditVacancyPage: React.FC = () => {
             formValue={formValue}
             handleSubmit={handleSubmit}
             title="Редактирование вакансии"
+            btnLabel="Сохранить изменения"
           />
         </div>
       </main>

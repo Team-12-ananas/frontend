@@ -5,8 +5,8 @@ export const STUDENT__INITIAL: IStudent[] = [
     id: 1,
     name: "Валентина Коготь",
     avatar:
-      "https://gas-kvas.com/uploads/posts/2023-01/1673291820_gas-kvas-com-p-anime-risunki-devochka-s-khvostikom-20.jpg",
-    specialty: "Дизайнер интерфейсов",
+      "https://img.goodfon.ru/original/2048x2048/9/5e/devushka-vzglyad-lico-ochki-guby.jpg",
+    specialty: "Графический дизайнер",
     city: "Москва",
     employmentType: ["Гибридный график"],
     readyToRelocate: true,
@@ -64,9 +64,8 @@ export const STUDENT__INITIAL: IStudent[] = [
   {
     id: 2,
     name: "Алексей Петров",
-    avatar:
-      "https://i2card.ot7.ru/service/uploads/7/1/9/картинка-аватарка-Алексей-Главная-3221326.jpg",
-    specialty: "Разработчик веб-приложений",
+    avatar: "https://i.vimeocdn.com/portrait/10793788_640x640",
+    specialty: "Графический дизайнер",
     city: "Санкт-Петербург",
     employmentType: ["Удаленная работа"],
     readyToRelocate: false,
@@ -117,8 +116,8 @@ export const STUDENT__INITIAL: IStudent[] = [
     projects: "Более 3 проектов",
     educationType: "Высшее образование",
     avatar:
-      "https://papik.pro/uploads/posts/2023-03/1677724549_papik-pro-p-krasivie-risunki-na-avatarku-dlya-devochek-27.jpg",
-    specialty: "QA Инженер",
+      "https://cdn.litgorod.ru/images/avatars/82fbb766eab1818d851ffacf7abde2b6.png",
+    specialty: "Графический дизайнер",
     city: "Екатеринбург",
     employmentType: ["Полная занятость"],
     readyToRelocate: true,
@@ -173,8 +172,8 @@ export const STUDENT__INITIAL: IStudent[] = [
     projects: "Более 5 проектов",
     educationType: "Высшее образование",
     avatar:
-      "https://tengyart.ru/wp-content/uploads/2020/12/Мужчкой-портрет-и-аватарка-для-инстаграм-в-нейросети-Artbreeder.jpg",
-    specialty: "Frontend Разработчик",
+      "https://images.thevoicemag.ru/upload/img_cache/6d2/6d2ca0f9d82cda8e552d052ca0262d93_cropped_1332x1332.jpg",
+    specialty: "Графический дизайнер",
     city: "Киев",
     employmentType: ["Удаленная работа"],
     readyToRelocate: false,
