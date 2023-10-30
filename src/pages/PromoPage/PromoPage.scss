@@ -79,7 +79,7 @@
   }
 
   &__icon-description {
-    color: var(--main-white, #fff);
+    color: var(--main-white, var(--white, #fff));
     text-align: center;
     font-family: "YS Display";
     font-size: 24px;

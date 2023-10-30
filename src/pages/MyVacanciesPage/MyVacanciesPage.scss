@@ -32,7 +32,7 @@
   align-items: flex-start;
   gap: 20px;
   border-radius: 12px;
-  background-color: #fff;
+  background-color: var(--white, #fff);
   color: var(--black-900, #1a1b22);
 
   &_disabled {
@@ -48,6 +48,12 @@
     margin: 0;
   }
 
+  &__cost {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
   &__price {
     margin: 0;
     font-family: "YS Display";
@@ -55,7 +61,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: 24px; /* 120% */
-    margin-right: 12px;
+    // margin-right: 12px;
   }
 
   &__budget {

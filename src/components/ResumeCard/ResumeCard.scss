@@ -1,7 +1,8 @@
 .resumeCard {
   max-width: 572px;
   border-radius: 20px;
-  background-color: #fff;
+  color: var(--black-900);
+  background-color: var(--white);
   display: grid;
   grid-template-columns: 81px 251px 200px;
   gap: 20px;
@@ -18,15 +19,15 @@
   }
 }
 
-.resumeCardPhoto {
+.resumeCard__photo {
   width: 81px;
   height: 81px;
-  border-radius: 50%;
+  border-radius: 8px;
 }
 
 .resumeCardName {
   margin: 0;
-  font-family: YS Display;
+  font-family: "YS Display";
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
@@ -36,7 +37,7 @@
 .resumeCardOccupation {
   margin: 0;
   margin-bottom: 8px;
-  font-family: YS Text;
+  font-family: "YS Text";
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -45,7 +46,7 @@
 
 .resumeCardDiscr {
   margin: 0;
-  font-family: YS Display;
+  font-family: "YS Display";
   font-size: 15.8px;
   font-style: normal;
   font-weight: 400;
@@ -55,6 +56,7 @@
 .cardTable {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .cardButtons {
@@ -67,11 +69,11 @@
   height: 40px;
   padding: 10px 20px;
   margin-right: 20px;
-  background-color: #fff;
+  background-color: var(--white, #fff);
   color: #1d6bf3;
   border: 1px solid #1d6bf3;
   border-radius: 6px;
-  font-family: YS Text;
+  font-family: "YS Text";
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -82,7 +84,7 @@
 
 .cardButtonToList:hover {
   background-color: #1d6bf3;
-  color: #fff;
+  color: var(--white, #fff);
 }
 
 .cardButtonLike {
@@ -92,7 +94,7 @@
   padding: 0;
   background-image: url(../../assets/like.png);
   background-position: center;
-  border: 1px solid #fff;
+  border: 1px solid var(--white, #fff);
   border-radius: 6px;
   cursor: pointer;
 }
@@ -109,8 +111,8 @@
   margin-top: 2px;
   padding: 0;
   background-position: center;
-  background-color: #fff;
-  border: 1px solid #fff;
+  background-color: var(--white, #fff);
+  border: 1px solid var(--white, #fff);
   border-radius: 6px;
   cursor: pointer;
 }
@@ -118,7 +120,7 @@
 .cardNote {
   /* display: none; */
   margin-left: 16px;
-  font-family: YS Text;
+  font-family: "YS Text";
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -135,27 +137,27 @@
   margin: 0 auto;
 }
 
-.cardFigure {
-  margin: 0;
-  width: 84px;
-  height: 72px;
-}
+// .cardFigure {
+//   margin: 0;
+//   width: 84px;
+//   height: 72px;
+// }
 
-.cardFigure:first-child {
-  margin-right: 8px;
-}
+// .cardFigure:first-child {
+//   margin-right: 8px;
+// }
 
-.cardFigureImg {
-  margin-bottom: 8px;
-  margin-top: 10px;
-  margin-left: 20px;
-}
+// .cardFigureImg {
+//   margin-bottom: 8px;
+//   margin-top: 10px;
+//   margin-left: 20px;
+// }
 
-.cardFigureFigcaption {
-  text-align: center;
-  font-family: YS Text;
-  font-size: 11px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 12px; /* 109.091% */
-}
+// .cardFigureFigcaption {
+//   text-align: center;
+//   font-family: "YS Text";
+//   font-size: 11px;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 12px; /* 109.091% */
+// }

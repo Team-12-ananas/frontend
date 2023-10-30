@@ -1,9 +1,11 @@
 import "./ResumeCard.scss";
 import React from "react";
-import starPink from "../../assets/starPink.png";
-import starYel from "../../assets/starYel.png";
+// import starPink from "../../assets/starPink.png";
+// import starYel from "../../assets/starYel.png";
 import { IStudent } from "../../mockapi/api-students";
 import MyButton from "../../UI/MyButton/MyButton";
+import BadgeContestant from "../BadgeContestant/BadgeContestant";
+import BadgeWinner from "../BadgeWinner/BadgeWinner";
 
 type TFuncForFavorite = (studentId: number) => Promise<void>;
 
@@ -24,7 +26,7 @@ const ResumeCard: React.FC<IProps> = ({
 }) => {
   return (
     <div className="resumeCard" onClick={() => handlePopupOpen(resume.id)}>
-      <img src={resume.avatar} className="resumeCardPhoto" alt="фото" />
+      <img src={resume.avatar} className="resumeCard__photo" alt="фото" />
       <div className="resumeCardInfo">
         <h2 className="resumeCardName">{resume.name}</h2>
         <p className="resumeCardOccupation">{resume.specialty}</p>
@@ -61,7 +63,7 @@ const ResumeCard: React.FC<IProps> = ({
         {inBase && <span className="cardNote">Перенесен в базу</span>}
 
         <div className="cardStars">
-          {resume.achievement.map((item, i) => {
+          {/* {resume.achievement.map((item, i) => {
             return (
               <figure className="cardFigure" key={i}>
                 <img
@@ -72,7 +74,11 @@ const ResumeCard: React.FC<IProps> = ({
                 <figcaption className="cardFigureFigcaption">{item}</figcaption>
               </figure>
             );
-          })}
+          })} */}
+
+          {/* TODO(zang3tsu88): В новом макете теперь только эти 2, да и в прошлых слишком много текста было, их либо дорабатывать надо, либо лучше избавится. */}
+          <BadgeContestant />
+          <BadgeWinner />
         </div>
       </div>
     </div>
