@@ -6,9 +6,12 @@ import Footer from "../../components/Footer/Footer";
 import { JobPostRequest, getVacancies } from "../../mockapi/api-vacancy";
 import VacancyCard from "../../components/VacancyCard/VacancyCard";
 import MyButton from "../../UI/MyButton/MyButton";
+import { useNavigate } from "react-router-dom";
 
 const MyVacanciesPage: React.FC = () => {
   const [vacancies, setVacancies] = useState<JobPostRequest[]>([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getVacancies()
@@ -25,6 +28,10 @@ const MyVacanciesPage: React.FC = () => {
       });
   }, []);
 
+  function handleCreateClick() {
+    navigate("/create", { replace: true });
+  }
+
   return (
     <StyledEngineProvider injectFirst>
       <Header />
@@ -34,7 +41,9 @@ const MyVacanciesPage: React.FC = () => {
             <Typography level="h1" fontWeight="md">
               Мои вакансии
             </Typography>
-            <MyButton type="button">Добавить вакансию</MyButton>
+            <MyButton type="button" onClick={handleCreateClick}>
+              Добавить вакансию
+            </MyButton>
           </Stack>
           <Grid className="grid">
             {vacancies
