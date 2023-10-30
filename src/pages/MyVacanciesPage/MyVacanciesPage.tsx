@@ -7,17 +7,20 @@ import { JobPostRequest, getVacancies } from "../../mockapi/api-vacancy";
 import VacancyCard from "../../components/VacancyCard/VacancyCard";
 import MyButton from "../../UI/MyButton/MyButton";
 import { useNavigate } from "react-router-dom";
+import { IStudent, getStudents } from "../../mockapi/api-students";
 
 const MyVacanciesPage: React.FC = () => {
   const [vacancies, setVacancies] = useState<JobPostRequest[]>([]);
-
+  const [students, setStudents] = useState<IStudent[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     try {
-      (async function getVacanciesData() {
+      (async function getVacanciesAndStudents() {
         const result = await getVacancies();
+        const students = await getStudents();
         setVacancies(result);
+        setStudents(students);
       })();
     } catch (error) {
       console.log("getVacancies catch");
@@ -48,7 +51,7 @@ const MyVacanciesPage: React.FC = () => {
                 <VacancyCard
                   vacancy={vacancy}
                   key={vacancy?.id}
-                  withLink={4} /* {vacancy.favorities?.length} */
+                  withLink={students.length}
                   withPadding
                 />
               ))}
