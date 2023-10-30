@@ -1,4 +1,4 @@
-import { Box, Chip, Link, StyledEngineProvider, Typography } from "@mui/joy";
+import { Chip, Link, StyledEngineProvider, Typography } from "@mui/joy";
 import "./VacancyPage.scss";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
@@ -18,6 +18,7 @@ import {
   setShow,
 } from "../../redux/slices/modalSlice";
 import { useAppDispatch } from "../../hooks/reduxHooks";
+import VacancyCard from "../../components/VacancyCard/VacancyCard";
 
 const VacancyPageV2: React.FC = () => {
   const { id } = useParams();
@@ -86,24 +87,7 @@ const VacancyPageV2: React.FC = () => {
             <div className="vacancy__container">
               <div className="vacancy__info">
                 <div className="vacancy__details">
-                  <Box className="card vacancy__card">
-                    <h2 className="card__title">{vacancy.name}</h2>
-                    <div className="card__cost">
-                      <span className="card__price">
-                        {vacancy.min_salary} ₽
-                      </span>
-                      <span className="card__budget">
-                        Бюджет {vacancy.max_salary} ₽
-                      </span>
-                    </div>
-                    <p className="card__city">{vacancy.city}</p>
-                    <div className="card__contacts">
-                      <p className="card__phone">{vacancy.phone}</p>
-                      <p className="card__email">{vacancy.email}</p>
-                    </div>
-                    {/* TODO(zang3tsu88): В myVacanciesPage к линку добавить класс card__link_disabled с стялями display: none, чтобы не отображать ссылку */}
-                    {/* <Link href="#" className="card__link"></Link> */}
-                  </Box>
+                  <VacancyCard vacancy={vacancy}></VacancyCard>
                 </div>
                 <div className="vacancy__skills">
                   {vacancy.keySkills.map((item, i) => {
