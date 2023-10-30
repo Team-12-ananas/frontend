@@ -31,7 +31,7 @@
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
-  line-height: 32px; /* 133.333% */
+  line-height: 32px;
 }
 
 .resumeCardOccupation {
@@ -41,7 +41,7 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 20px; /* 125% */
+  line-height: 20px;
 }
 
 .resumeCardDiscr {
@@ -50,7 +50,7 @@
   font-size: 15.8px;
   font-style: normal;
   font-weight: 400;
-  line-height: 18.96px; /* 120% */
+  line-height: 18.96px;
 }
 
 .cardTable {
@@ -82,7 +82,7 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 20px; /* 142.857% */
+  line-height: 20px;
   text-align: center;
   cursor: pointer;
 }
@@ -122,14 +122,17 @@
   cursor: pointer;
 }
 
+.cardButtonLikeClicked:hover {
+  opacity: 0.8;
+}
+
 .cardNote {
-  /* display: none; */
   margin-left: 16px;
   font-family: "YS Text";
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 20px; /* 125% */
+  line-height: 20px;
   color: #87cc9e;
 }
 
@@ -141,28 +144,3 @@
   display: flex;
   margin: 0 auto;
 }
-
-// .cardFigure {
-//   margin: 0;
-//   width: 84px;
-//   height: 72px;
-// }
-
-// .cardFigure:first-child {
-//   margin-right: 8px;
-// }
-
-// .cardFigureImg {
-//   margin-bottom: 8px;
-//   margin-top: 10px;
-//   margin-left: 20px;
-// }
-
-// .cardFigureFigcaption {
-//   text-align: center;
-//   font-family: "YS Text";
-//   font-size: 11px;
-//   font-style: normal;
-//   font-weight: 400;
-//   line-height: 12px; /* 109.091% */
-// }

@@ -32,6 +32,8 @@ import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import DeleteOutline from "@mui/icons-material/DeleteOutline";
 import MyDropdown from "../../UI/MyDropdown/MyDropdown";
 import dictionary from "../../constants/CreateVacancyPage";
+import MyDropDownMulty from "../../UI/MyDropDownMulty/MyDropDownMulty";
+import { TFieldDrowDownMulty } from "../../types/types";
 
 type TFieldDrowDownSingle = {
   description: string;
@@ -43,19 +45,19 @@ type TFieldDrowDownSingle = {
 };
 
 interface IFormValue {
-  skills: TFieldDrowDownSingle;
+  skills: TFieldDrowDownMulty;
   specialty: TFieldDrowDownSingle;
   specializationType: TFieldDrowDownSingle;
 }
 
 const VacancyPageV2: React.FC = () => {
   const [isFilterOpened, setIsFilterOpen] = useState<boolean>(false);
-  const [formValue, setFormValue] = useState<IFormValue>({
+  const INITIAL_FILTER_VALUE = {
     skills: {
       description: "Навыки",
-      value: null,
-      onChange: (_: SyntheticEvent<Element, Event>, newValue: string | null) =>
-        handleChangeDropDownSingle(newValue, "skills"),
+      value: [],
+      onChange: (_: SyntheticEvent<Element, Event>, newValue: string[]) =>
+        handleChangeDropDownMulty(newValue, "skills"),
     },
     specialty: {
       description: "Специальность",
@@ -69,7 +71,8 @@ const VacancyPageV2: React.FC = () => {
       onChange: (_: SyntheticEvent<Element, Event>, newValue: string | null) =>
         handleChangeDropDownSingle(newValue, "specializationType"),
     },
-  });
+  };
+  const [formValue, setFormValue] = useState<IFormValue>(INITIAL_FILTER_VALUE);
   const { id } = useParams();
   const [vacancy, setVacancy] = useState<JobPostRequest | null>(null);
   const [students, setStudents] = useState<IStudent[] | null>(null);
@@ -79,6 +82,21 @@ const VacancyPageV2: React.FC = () => {
   const navigate = useNavigate();
 
   const handleChangeDropDownSingle = (newValue: string | null, key: string) => {
+    setFormValue((prev) => {
+      return {
+        ...prev,
+        [key]: {
+          ...prev[key as keyof IFormValue],
+          value: newValue,
+        },
+      };
+    });
+  };
+
+  const handleChangeDropDownMulty = (
+    newValue: string[],
+    key: keyof IFormValue
+  ) => {
     setFormValue((prev) => {
       return {
         ...prev,
@@ -214,7 +232,7 @@ const VacancyPageV2: React.FC = () => {
                             </Button>
                             <Button
                               color="neutral"
-                              onClick={function () {}}
+                              onClick={() => setFormValue(INITIAL_FILTER_VALUE)}
                               className="filter__btn filter__btn_remove"
                               size="sm"
                               variant="plain"
@@ -224,15 +242,12 @@ const VacancyPageV2: React.FC = () => {
                             </Button>
                           </div>
                           <div className="filter__skills">
-                            <MyDropdown
+                            <MyDropDownMulty
                               label={formValue.skills.description}
                               value={formValue.skills.value}
                               onChange={formValue.skills.onChange}
-                              //TODO(zang3tu88): ТУТ словарь проверить, и вообще пройтись по тайпскрипту, проверить методы, интерфейсы и тп.
-                              options={dictionary.specialtyOptions}
+                              options={vacancy.keySkills}
                             />
-
-                            {/* TODO(zang3tsu88): у компонентов MyDropDown его родной класс - .my-dropdown__dropdown { width: 258px;}  мешает этим компонентам в карточке поиска встать во всю длинну родителя, если его убрать, то все будет нормально. У меня не получилось добавить к ним класс с модификатором чтоб его переписать.*/}
                           </div>
                           <div className="filter__speciality">
                             <MyDropdown
