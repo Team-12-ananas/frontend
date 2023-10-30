@@ -1,5 +1,6 @@
 {
   "name": "pineapplebite",
+  "homepage": "https://team-12-ananas.github.io/frontend/",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -15,7 +16,7 @@
     "format": "prettier . --write",
     "test": "vitest --ui",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
