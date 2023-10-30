@@ -1,0 +1,29 @@
+.badge {
+  width: 84px;
+  height: 76px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  &__icon {
+    width: 40px;
+    height: 40px;
+
+    &_contestant {
+      background-image: url("../../assets/icons/iconContestant.svg");
+    }
+  }
+
+  &__text {
+    color: var(--main-black-900, #1a1b22);
+    text-align: center;
+    /* Дополнительные/Caption2_Regular */
+    font-family: "YS Text";
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 12px; /* 109.091% */
+    margin: 0;
+  }
+}

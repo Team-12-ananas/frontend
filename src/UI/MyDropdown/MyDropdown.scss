@@ -1,0 +1,18 @@
+.my-dropdown {
+  &__dropdown {
+    width: 258px;
+  }
+
+  &__dropdown_type_full {
+    width: auto;
+  }
+
+  &__input-label {
+    color: var(--black-900);
+    font-family: "YS Text";
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 16px;
+    margin: 0 0 4px 0;
+  }
+}

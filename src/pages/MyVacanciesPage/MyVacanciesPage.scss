@@ -1,0 +1,117 @@
+.my-vacancies {
+  color: var(--white);
+  background-color: var(--black-900);
+  background-image: url(../../assets/OrnamentationPromo.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  flex: 1;
+
+  &__container {
+    box-sizing: border-box;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 80px;
+  }
+}
+
+.grid {
+  margin-top: 32px;
+  margin-bottom: 70px;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-around;
+}
+
+.card {
+  display: flex;
+  box-sizing: border-box;
+  max-width: 619px;
+  padding: 32px 40px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  border-radius: 12px;
+  background-color: var(--white, #fff);
+  color: var(--black-900, #1a1b22);
+
+  &_disabled {
+    color: rgba(26, 27, 34, 0.4);
+  }
+
+  &__title {
+    font-family: "YS Display";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px; /* 133.333% */
+    margin: 0;
+  }
+
+  &__cost {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  &__price {
+    margin: 0;
+    font-family: "YS Display";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 120% */
+    // margin-right: 12px;
+  }
+
+  &__budget {
+    margin: 0;
+    color: var(--black-500, #797981);
+    font-family: "YS Text";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 125% */
+  }
+
+  &__city {
+    margin: 0;
+    color: var(--black-500, #797981);
+    font-family: "YS Text";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 133.333% */
+  }
+
+  &__contacts {
+    display: grid;
+    gap: 8px;
+
+    color: var(--black-500, #797981);
+    font-family: "YS Text";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 133.333% */
+  }
+
+  &__phone {
+    margin: 0;
+  }
+
+  &__email {
+    margin: 0;
+  }
+
+  &__link {
+    color: var(--blue, #5a9bff);
+    /* Заголовки/H3_Medium */
+    font-family: "YS Display";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 120% */
+    // height: 24px;
+  }
+}

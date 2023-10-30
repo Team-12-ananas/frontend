@@ -1,0 +1,146 @@
+.resumeCard {
+  max-width: 572px;
+  border-radius: 20px;
+  color: var(--black-900);
+  background-color: var(--white);
+  display: grid;
+  grid-template-columns: 81px 251px 200px;
+  gap: 20px;
+  padding: 24px;
+  margin-bottom: 28px;
+  min-height: 150px;
+  cursor: pointer;
+}
+
+@media (max-width: 1280px) {
+  .resumeCard {
+    grid-template-columns: 18% 42% 30%;
+    padding-left: 15px;
+  }
+}
+
+.resumeCard__photo {
+  width: 81px;
+  height: 81px;
+  border-radius: 8px;
+}
+
+.resumeCardName {
+  margin: 0;
+  font-family: "YS Display";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+.resumeCardOccupation {
+  margin: 0;
+  margin-bottom: 8px;
+  font-family: "YS Text";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.resumeCardDiscr {
+  margin: 0;
+  font-family: "YS Display";
+  font-size: 15.8px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18.96px;
+}
+
+.cardTable {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cardButtons {
+  display: flex;
+  margin: 0 auto;
+}
+
+.cardButtons__type_solo {
+  display: flex;
+  margin: 8px 30px auto auto;
+}
+
+.cardButtonToList {
+  width: 106px;
+  height: 40px;
+  padding: 10px 20px;
+  margin-right: 20px;
+  background-color: var(--white, #fff);
+  color: #1d6bf3;
+  border: 1px solid #1d6bf3;
+  border-radius: 6px;
+  font-family: "YS Text";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.cardButtonToList:hover {
+  background-color: #1d6bf3;
+  color: var(--white, #fff);
+}
+
+.cardButtonLike {
+  width: 40px;
+  height: 40px;
+  margin-top: 2px;
+  padding: 0;
+  background-image: url(../../assets/like.png);
+  background-position: center;
+  border: 1px solid var(--white, #fff);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cardButtonLike:hover {
+  border: 1px solid #1d6bf3;
+  box-shadow: none;
+}
+
+.cardButtonLikeClicked {
+  background-image: url(../../assets/likePressed.png);
+  width: 40px;
+  height: 40px;
+  margin-top: 2px;
+  padding: 0;
+  background-position: center;
+  background-color: var(--white, #fff);
+  border: 1px solid var(--white, #fff);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cardButtonLikeClicked:hover {
+  opacity: 0.8;
+}
+
+.cardNote {
+  margin-left: 16px;
+  font-family: "YS Text";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  color: #87cc9e;
+}
+
+.cardNote_active {
+  display: flex;
+}
+
+.cardStars {
+  display: flex;
+  margin: 0 auto;
+}
