@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router";
 import classes from "./App.module.scss";
-import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import PromoPage from "./pages/PromoPage/PromoPage";
@@ -18,12 +17,11 @@ function App() {
         <Route path="/" Component={PromoPage} />
         <Route path="/my-vacancies" Component={MyVacanciesPage} />
         <Route path="/favorites" Component={FavoritePage} />
-        <Route path="/create" Component={CreateVacancyPage} />
         <Route path="/vacancy/:id" Component={VacancyPage} />
         <Route path="/edit-vacancy/:id" Component={EditVacancyPage} />
         <Route
-          path="/profile"
-          element={<ProtectedRoute Component={ProfilePage} />}
+          path="/create"
+          element={<ProtectedRoute Component={CreateVacancyPage} />}
         />
         <Route path="*" Component={ErrorPage} />
       </Routes>

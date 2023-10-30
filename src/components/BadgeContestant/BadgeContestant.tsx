@@ -1,7 +1,5 @@
 import "./BadgeContestant.scss";
 
-import React from "react";
-
 const BadgeContestant = () => {
   return (
     <div className="badge">
