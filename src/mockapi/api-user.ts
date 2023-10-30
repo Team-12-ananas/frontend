@@ -21,7 +21,7 @@ export const getUsers = (): Promise<IUser[]> => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(users);
-    }, 200);
+    }, 10);
   });
 };
 
@@ -31,7 +31,7 @@ export const getUserById = (id: number): Promise<IUser> => {
       const vacancy = users.find((item) => item.id === id);
       if (vacancy) resolve(vacancy);
       else reject("Не найдено в базе");
-    }, 200);
+    }, 10);
   });
 };
 
@@ -41,7 +41,7 @@ export const getUserFavoriteById = (id: number): Promise<number[]> => {
       const vacancy = users.find((item) => item.id === id);
       if (vacancy) resolve(vacancy.favoriteStudents);
       else reject("Не найдено в базе");
-    }, 200);
+    }, 10);
   });
 };
 
@@ -59,7 +59,7 @@ export const removeUserFavoriteById = (
       const user = users.find((item) => item.id === idUser);
       if (user) resolve(user.favoriteStudents);
       else reject("Не найдено в базе");
-    }, 200);
+    }, 10);
   });
 };
 
@@ -73,6 +73,6 @@ export const addUserFavoriteById = (
       user?.favoriteStudents.push(idStudent);
       if (user) resolve(user.favoriteStudents);
       else reject("Не найдено в базе");
-    }, 200);
+    }, 10);
   });
 };

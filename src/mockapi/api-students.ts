@@ -48,7 +48,7 @@ const getStudents = (): Promise<IStudent[]> => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(students);
-    }, 1000);
+    }, 10);
   });
 };
 
@@ -56,7 +56,7 @@ const getStudentById = (id: number): Promise<IStudent | undefined> => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(students.find((student) => student.id === id));
-    }, 1000);
+    }, 10);
   });
 };
 

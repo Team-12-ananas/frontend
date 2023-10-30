@@ -44,7 +44,7 @@ const addVacancy = (vacancy: unknown): Promise<JobPostRequest> => {
       };
       vacancies.push(vacancyWithIdAndArchive);
       resolve(vacancyWithIdAndArchive);
-    }, 200);
+    }, 10);
   });
 };
 
@@ -63,7 +63,7 @@ const editVacancy = (id: number, vacancy: unknown): Promise<JobPostRequest> => {
         archive: vacancies[index].archive,
       } as JobPostRequest;
       resolve(vacancy as JobPostRequest);
-    }, 200);
+    }, 10);
   });
 };
 
@@ -71,7 +71,7 @@ const getVacancies = (): Promise<JobPostRequest[]> => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(vacancies);
-    }, 200);
+    }, 10);
   });
 };
 
@@ -81,7 +81,7 @@ const getVacancyById = (id: number): Promise<JobPostRequest> => {
       const vacancy = vacancies.find((item) => item.id === id);
       if (vacancy) resolve(vacancy);
       else reject("Не найдено в базе");
-    }, 200);
+    }, 10);
   });
 };
 
@@ -90,7 +90,7 @@ const archiveVacancy = (id: number): Promise<JobPostRequest[]> => {
     setTimeout(() => {
       vacancies.find((item) => item.id === id)?.archive === true;
       resolve(vacancies);
-    }, 200);
+    }, 10);
   });
 };
 
@@ -102,7 +102,7 @@ const addStudentToFavorite = (
     setTimeout(() => {
       vacancies.find((item) => item.id === id)?.favorities?.push(studentId);
       resolve(vacancies);
-    }, 200);
+    }, 10);
   });
 };
 
