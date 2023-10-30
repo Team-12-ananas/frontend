@@ -8,6 +8,8 @@ import MyVacanciesPage from "./pages/MyVacanciesPage/MyVacanciesPage";
 import CreateVacancyPage from "./pages/CreateVacancyPage/CreateVacancyPage";
 import VacancyPage from "./pages/VacancyPage/VacancyPage";
 import ResumeModal from "./components/ResumeModal/ResumeModal";
+//TODO(zang3tsu88) для синхронной верстки, и сравнения с исходником.
+import VacancyPageV2 from "./pages/VacancyPage/VacancyPageV2";
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
         <Route path="/my-vacancies" Component={MyVacanciesPage} />
         <Route path="/create" Component={CreateVacancyPage} />
         <Route path="/vacancy/:id" Component={VacancyPage} />
+        <Route path="/vacancy/v2/:id" Component={VacancyPageV2} />
         <Route
           path="/profile"
           element={<ProtectedRoute Component={ProfilePage} />}

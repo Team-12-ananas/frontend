@@ -13,7 +13,7 @@
 .aboutVacancy {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  background-color: #fff;
+  background-color: var(--white, #fff);
 }
 .aboutVacancy__container {
   max-width: 1280px;
@@ -49,9 +49,9 @@
   margin-right: 8px;
   margin-top: 8px;
   color: #5a9bff;
-  background-color: #fff;
+  background-color: var(--white, #fff);
   border: 1px solid #5a9bff;
-  font-family: YS Text;
+  font-family: "YS Text";
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -73,7 +73,7 @@
   width: 121px;
   padding-left: 0;
   border: none;
-  font-family: YS Text;
+  font-family: "YS Text";
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -83,7 +83,7 @@
 
 .atWorkValue {
   color: #87cc9e;
-  font-family: YS Text;
+  font-family: "YS Text";
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -92,7 +92,7 @@
 
 .atWorkClose {
   color: rgba(255, 191, 253, 0.87);
-  font-family: YS Text;
+  font-family: "YS Text";
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -102,9 +102,9 @@
 .editButton {
   padding-left: 0;
   border: none;
-  background-color: #fff;
+  background-color: var(--white, #fff);
   cursor: pointer;
-  font-family: YS Text;
+  font-family: "YS Text";
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -137,9 +137,9 @@
   justify-content: center;
   background-color: #1a1b22;
   border-radius: 6px;
-  border: 1px solid #fff;
-  color: #fff;
-  font-family: YS Text;
+  border: 1px solid var(--white, #fff);
+  color: var(--white, #fff);
+  font-family: "YS Text";
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -147,11 +147,11 @@
 }
 
 .tableTitle {
-  font-family: YS Display;
+  font-family: "YS Display";
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
   line-height: 32px; /* 133.333% */
-  color: #fff;
-  border-bottom: 1px solid #fff;
+  color: var(--white, #fff);
+  border-bottom: 1px solid var(--white, #fff);
 }
