@@ -41,7 +41,7 @@ const Header: React.FC = () => {
             <nav>
               <ul className="header__nav">
                 <li className="header__nav-item header__nav-item_active">
-                  <Link to={"/"} className="header__nav-link">
+                  <Link to={"/favorites"} className="header__nav-link">
                     {navItemText[0]}
                   </Link>
                 </li>

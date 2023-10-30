@@ -5,6 +5,7 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import PromoPage from "./pages/PromoPage/PromoPage";
 import MyVacanciesPage from "./pages/MyVacanciesPage/MyVacanciesPage";
+import FavoritePage from "./pages/FavoritesPage/FavoritesPage";
 import CreateVacancyPage from "./pages/CreateVacancyPage/CreateVacancyPage";
 import VacancyPage from "./pages/VacancyPage/VacancyPage";
 import ResumeModal from "./components/ResumeModal/ResumeModal";
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" Component={PromoPage} />
         <Route path="/my-vacancies" Component={MyVacanciesPage} />
+        <Route path="/favorites" Component={FavoritePage} />
         <Route path="/create" Component={CreateVacancyPage} />
         <Route path="/vacancy/:id" Component={VacancyPage} />
         <Route
